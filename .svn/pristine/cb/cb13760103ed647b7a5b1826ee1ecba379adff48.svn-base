@@ -1,0 +1,330 @@
+#browser {
+  width:350px;
+  height:100%;
+  float:left;
+  position:relative;
+  z-index:999;
+  
+  .box-shadow(5px 0 15px @shadow);
+  
+  h1 {
+    font-size: 2.5em;
+  }
+  
+  h2 {
+    font-size: 2em;
+  }
+  
+  h3 {
+    font-size: 1.5em;
+  }
+  
+  h4 {
+    font-size: 1em;
+  }
+}
+
+#content {
+  height:100%;
+  overflow:hidden;
+  position:relative;
+  
+  iframe {
+    width:100%;
+    height:100%;
+    z-index:-1;
+    border:none;
+  }
+  
+  .nav-arrow {
+    position: absolute;
+    bottom: 150px;
+    cursor: pointer;
+    opacity: 0.75;
+      
+    &:hover{
+      opacity: 1;
+    }
+    
+    &.nav-arrow-left{
+      left: 0;  
+    }
+    
+    &.nav-arrow-right{
+      right:0;  
+    }
+  }
+}
+
+#hideMe{
+  //z-index:10;
+  position: relative;
+  top:-5px;
+  left:356px;
+  
+  display:block;
+  
+  //writing-mode:tb-rl;
+  white-space:nowrap;
+  .rotate(90deg);
+  .transform-origin(left, bottom);
+  
+  cursor: pointer;
+  
+  span {
+    padding:6px 15px;
+    border: 2px solid @textGray;
+    .border-radiuses(4px, 0, 0, 4px);
+    text-transform:uppercase;
+    color:@textGray;
+    font-family: @brandedFont;
+    background-color:#FFFFFF;
+    
+    .transition(opacity .5s);
+    
+    .opacity(.4);
+    
+    &:hover {
+      .opacity(.8);
+    }
+  }
+}
+
+.header {
+  height: 110px;
+  margin-top:-19px;
+  padding: 25px 15px;
+  padding-bottom:0;
+  position: relative;
+  font-family: @brandedFont;
+  
+  h1 {
+    display: inline;
+  }
+  
+  h3 {
+    margin-left:4px;
+    color: @textGray; 
+  }
+  
+  .view-all-strings-link {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    
+    color: @textLightGray;
+    text-decoration: none;  
+    
+    .transition(color .5s);
+    
+    &:hover {
+      color: #000000;
+    }
+  }
+}
+
+#browserList {
+  //overflow: hidden;
+  overflow-y:auto;
+  
+  .string-container {
+    display: block;
+    position:relative;
+    
+    .string-unread-tag {
+      position: absolute;
+      top: 0;
+      left: 8px;
+      
+      i {
+        z-index: 1;
+      }
+      
+      span {
+        position: absolute;
+        top: 7px;
+        left: 5px;
+        z-index: 2;
+        color: white;
+        font-size: .9em;
+        font-weight: bold;
+      }
+    }
+    
+    .string-info{
+      height: 100%;
+      padding-left: 40px;
+      display:block;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: rgba(143, 176, 252, .1);
+      }
+      
+      a {
+        width:100%;
+        height: 100%;
+        padding: 8px 0;
+        display:block;
+        overflow:hidden;
+        text-overflow: ellipsis;
+        border-bottom: 1px solid @textGray;
+        .transition(padding 1s);
+        
+        h3 {
+          font-family: @normalFont;
+          text-transform: none;
+          margin-bottom: 10px;
+          font-weight: normal;
+        }
+        
+        p {
+          color: @textGray;
+        }
+      }
+      
+      .text {
+        width: 90%;
+        height: 100%;
+        float:left;
+      }
+      
+      .arrow {
+        width: 10%;
+        height: 100%;
+        float: left;
+        
+        text-align: center;
+        
+        img {
+          display: block;
+          margin: auto;
+        }
+        
+        -webkit-transition: -webkit-transform .5s;
+        -moz-transition: -moz-transform .5s;
+        -o-transition: -o-transform .5s;
+        transition: transform .5s;
+        
+      }
+      
+      &.active {
+        background-color: @listboxHighlight;
+        
+        a {
+          // padding: 25px 0;
+        }
+        
+        .arrow {
+          -webkit-transform: rotate(90deg);
+          -moz-transform: rotate(90deg);
+          -o-transform: rotate(90deg);
+          transform: rotate(90deg);
+        }
+      }
+    }
+    
+    .pages-content {
+      
+      .page-container {
+        //padding-top: 5px;
+        
+        display:block;
+        overflow:hidden;
+        position:relative;
+        cursor: pointer;
+        
+        a:not(.page-delete) {
+          min-height: 20px;
+          margin-left: 60px;
+          padding: 10px 0 10px 15px;
+          display:block;
+          border-bottom: 1px solid @ribbonBorderBlue;
+          text-decoration:none;
+          
+          h4 {
+            font-family: @normalFont;
+            text-transform: none;
+            color: @textGray;
+            font-weight: normal;
+          }
+          
+        }
+        
+        .page-unread-marker {
+          width: 10px;
+          height: 10px;
+          position: absolute;
+          top: 15px;
+          left: 45px;
+          .border-radius(5px);
+          background-color: @darkBlue;
+        }
+        
+        .page-info {
+          
+          &:hover {
+            background-color: @listboxHighlight;
+          }
+          
+          &.active {
+            background-color: @listboxHighlight;
+          }
+        }
+        
+        .page-delete {
+          display: none;
+          position: absolute;
+          top: 15px;
+          right: 5px;
+          overflow: hidden;
+        }
+        
+        .page-comments {
+          margin-left: 80px;
+          overflow: hidden;
+          cursor: default;
+          
+          .comment-container {
+            padding: 8px 0;
+            display: block;
+            overflow: hidden;
+            border-bottom: 1px solid @lightGray;
+            
+          
+            .comment-pic {
+              overflow: hidden;
+              float: left;
+            }
+            
+            .comment-content {
+              margin-left: 60px;
+              color: @darkGray;
+              font-family: @normalFont;
+              font-weight: bold;
+              font-size: .75em;
+            }
+          }
+        }
+      }
+      
+      .add-page {
+        margin-top: 10px;
+        margin-right: 10px;
+        display: block;
+        text-align: right;
+        
+        a {
+          color: @gray;
+          
+          &:hover {
+            color: @darkGray;
+          }
+        }
+      }
+      
+    }
+  }
+  
+  
+}

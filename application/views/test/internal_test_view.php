@@ -1,0 +1,72 @@
+<!DOCTYPE html>	
+<html lang="en">
+	<head>
+		
+		<title><?php echo $title; ?></title>
+		
+		<link href="<?php echo base_url(); ?>public_html/css/ws.css" type="text/css" rel="stylesheet"/>
+		<link href="<?php echo base_url(); ?>public_html/css/jqueryUI/jquery.jscrollpane.css" type="text/css" rel="stylesheet"/>
+		<?php if(isset($extraCSS)) echo $extraCSS; ?>
+		
+		<script type="text/javascript">
+			var baseURL = "<?php echo base_url(); ?>";
+			var siteURL = "<?php echo site_url(); ?>/";
+			var browserScroll = null;
+		</script>
+		<script src="<?php echo base_url(); ?>public_html/js/jquery-1.7.2.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+		<script src="<?php echo base_url(); ?>public_html/js/jquery.mousewheel.js"></script>
+		<script src="<?php echo base_url(); ?>public_html/js/mwheelIntent.js"></script>
+		<script src="<?php echo base_url(); ?>public_html/js/jquery.jscrollpane.min.js"></script>
+		<script src="http://js.pusher.com/1.12/pusher.min.js"></script>
+		<?php if(isset($extraJS)) echo $extraJS; ?>
+		
+		
+	</head>
+	<body>
+		<div id="browser">
+			<a id="hideMe"><span>Hide Bar</span></a>
+			<div class="header">
+				<a href="<?php echo site_url('browser'); ?>"><h1>Webstrings</h1></a>
+			</div>
+			<div class="ribbon">
+				<div class="ribbon-text-wrapper">
+					<a class="ribbon-text-large" href="#">Login</a> | 
+					<a class="ribbon-text-large" href="#">Sign Up</a>
+				</div>
+			</div>
+			<div id="browserList" data-filter="my_strings">
+	
+				<ul>
+					<?php foreach($files as $file): ?>
+						<?php 
+							$exploded = explode('.', $file);
+ 
+							// if no extension
+							if (count($exploded) == 1)
+							{
+								$fname = $file;
+							}
+					 
+							// remove extension
+							array_pop($exploded);
+					 
+							$fname = implode('.', $exploded);
+						
+						?>
+						<li><a href="<?php echo site_url('test/internal_test/'.$fname) ?>"><?php echo $fname; ?></a></li>
+					<?php endforeach; ?>
+				</ul>
+				
+			</div>
+		</div>
+		<div id="pageContent" style=" height: 100%; margin-left:350px; overflow: auto;">
+			<?php 
+				if(isset($vfile))
+					$this->load->view('internalPages/'.$vfile); 
+			?>
+		</div>
+		<script src="<?php echo base_url(); ?>public_html/js/browser.js"></script>
+		<script src="<?php echo base_url(); ?>public_html/js/forms.js"></script>
+	</body>
+</html>

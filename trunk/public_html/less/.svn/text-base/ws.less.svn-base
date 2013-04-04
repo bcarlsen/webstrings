@@ -1,0 +1,22 @@
+///////////////////////////////////////////
+//                                       //
+//            WebStrings.less            //
+//                                       //
+///////////////////////////////////////////
+
+@import "variables";
+@import "resets";
+@import "globals";
+@import "mixins";
+
+@import "icons";
+@import "modals";
+@import "forms";
+
+@import "browser";
+@import "ribbon";
+@import "toolbar";
+
+@import "internalPages";
+@import "pictures";
+

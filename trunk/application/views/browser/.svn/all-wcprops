@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/webstrings/!svn/ver/45/trunk/application/views/browser
+END
+test_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/webstrings/!svn/ver/10/trunk/application/views/browser/test_view.php
+END
+frame.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/webstrings/!svn/ver/45/trunk/application/views/browser/frame.php
+END
+page_comments_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/webstrings/!svn/ver/34/trunk/application/views/browser/page_comments_view.php
+END
+string_list_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/webstrings/!svn/ver/44/trunk/application/views/browser/string_list_view.php
+END
+template.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/webstrings/!svn/ver/39/trunk/application/views/browser/template.php
+END
+string_pages_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/webstrings/!svn/ver/39/trunk/application/views/browser/string_pages_view.php
+END
+string_pages_ribbon.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/webstrings/!svn/ver/38/trunk/application/views/browser/string_pages_ribbon.php
+END
+not_logged_in_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/webstrings/!svn/ver/44/trunk/application/views/browser/not_logged_in_view.php
+END
+strings_ribbon.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/webstrings/!svn/ver/39/trunk/application/views/browser/strings_ribbon.php
+END

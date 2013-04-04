@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/webstrings/!svn/ver/46/trunk/application/views/modals
+END
+new_string_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/webstrings/!svn/ver/24/trunk/application/views/modals/new_string_view.php
+END
+modal_refresh.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/webstrings/!svn/ver/23/trunk/application/views/modals/modal_refresh.php
+END
+settings_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/webstrings/!svn/ver/45/trunk/application/views/modals/settings_view.php
+END
+template.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/webstrings/!svn/ver/10/trunk/application/views/modals/template.php
+END
+add_page_success.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/webstrings/!svn/ver/14/trunk/application/views/modals/add_page_success.php
+END
+share_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/webstrings/!svn/ver/46/trunk/application/views/modals/share_view.php
+END
+add_page_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/webstrings/!svn/ver/24/trunk/application/views/modals/add_page_view.php
+END
+delete_string_success.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/webstrings/!svn/ver/23/trunk/application/views/modals/delete_string_success.php
+END
+contributors_content_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/webstrings/!svn/ver/32/trunk/application/views/modals/contributors_content_view.php
+END
+log_in_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/webstrings/!svn/ver/44/trunk/application/views/modals/log_in_view.php
+END
+delete_string_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/webstrings/!svn/ver/14/trunk/application/views/modals/delete_string_view.php
+END
+contributors_modal_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/webstrings/!svn/ver/32/trunk/application/views/modals/contributors_modal_view.php
+END
+new_string_success.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/webstrings/!svn/ver/23/trunk/application/views/modals/new_string_success.php
+END
+settings_success.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/webstrings/!svn/ver/45/trunk/application/views/modals/settings_success.php
+END

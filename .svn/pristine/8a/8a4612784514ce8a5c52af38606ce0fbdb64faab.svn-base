@@ -1,0 +1,95 @@
+
+<div class="modal-content">
+	<form action="<?php echo site_url('modals/change_email'); ?>" method="post">
+		<div class="control-group single-line-form-ajax">
+			<label for="email">Email</label>
+			<div class="control-group single-line-form">
+				<input type="submit" name="submit" value="Change"/>
+				<span class="input-wrapper">
+					<input type="text" name="email" value="<?php echo $user->email; ?>" />
+				</span>
+			</div>
+		</div>
+	</form>
+	
+	<hr />
+	
+	<form action="<?php echo site_url('modals/change_name'); ?>" method="post">
+		<div class="control-group ">
+			<label for="f_name">First Name</label>
+			<span class="input-wrapper"><input type="text" name="f_name" value="<?php echo $user->f_name; ?>" /></span>
+		</div>
+	
+		<div class="control-group single-line-form-ajax">
+			<label for="l_name">Last Name</label>
+			<div class="control-group single-line-form">
+				<input type="submit" name="submit" value="Change"/>
+				<span class="input-wrapper">
+					<input type="text" name="l_name" value="<?php echo $user->l_name; ?>" />
+				</span>
+			</div>
+		</div>
+	</form>
+	
+	<hr />
+
+	<form action="<?php echo site_url('modals/change_password'); ?>" method="post">
+		<?php echo validation_errors(); ?>
+		<div class="control-group ">
+			<?php echo form_label('New password', 'pw'); ?>
+			<span class="input-wrapper"><?php echo form_password('pw', '', "class='text-nrm'"); ?></span>
+		</div>
+		
+		<div class="control-group single-line-form-ajax">
+			<label for="pw_conf">Confirm password</label>
+			<div class="control-group single-line-form">
+				<input type="submit" name="submit" value="Change"/>
+				<span class="input-wrapper">
+					<input type="password" name="pw_conf" />
+				</span>
+			</div>
+		</div>
+		
+		<div class="form-errors">
+			
+		</div>
+	</form>
+	
+	<hr />
+	
+	<form>
+		<div class="control-group">
+			<label>Change photo</label>
+			<div class="settings-change-photo-container">
+				<div class="pic-cropper large">
+					<img src="<?php if($user->fb) echo $user->pic_url; else echo base_url()."public_html/images/default_avatar.png"; ?>" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+<!-- end modal-content -->
+
+
+<div class="modal-footer">
+	<a href="javascript:closeModal()" class="modal-button left">Cancel</a>
+</div>
+
+<!--
+<?php echo form_open('modals/change_password', array('id' => 'modalForm', 'onsubmit' =>  'submitModalForm()'), array('submit' => 'submit')); ?>
+<?php echo validation_errors(); ?>
+<div class="modal-content">
+	<div class="control-group ">
+		<?php echo form_label('New PW', 'pw'); ?>
+		<span class="input-wrapper"><?php echo form_password('pw', '', "class='text-nrm'"); ?></span>
+	</div>
+</div>
+
+<div class="modal-content">
+	<div class="control-group ">
+		<?php echo form_label('Confirm PW', 'pw_conf'); ?>
+		<span class="input-wrapper"><?php echo form_password('pw_conf', '', "class='text-nrm'"); ?></span>
+	</div>
+</div>-->

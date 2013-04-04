@@ -1,0 +1,206 @@
+<div class="dev-content">
+	<h1>WebStrings Style Guide</h1>
+	<div class="dev-section">
+		<h2>Contents</h2>
+		<ul class="dev-table-of-contents">
+			<li><a href="#typography">Typography</a></li>
+			<li><a href="#forms">Forms</a></li>
+			<li><a href="#buttons">Buttons</a></li>
+		</ul>
+	</div>
+	
+	<div class="dev-section">
+		<h2 id="typography">Typography</h2>
+		
+	</div>
+	
+	<div class="dev-section">
+		<h2 id="forms">Forms</h2>
+		<h3>Single line forms</h3>
+		
+		<div class="dev-entry">
+			<p>A single line form for a quick action. On submit, expect a refresh or page change.</p>
+			<div class="dev-example">
+				<div class="dev-example-view">
+					<form data-form-group="0">
+						<div class="control-group single-line-form">
+							<input type="submit" name="submit" value="Send invite"/>
+							<span class="input-wrapper">
+								<input type="text" name="inputName" placeholder="Invite a new contributor..." />
+							</span>
+						</div>
+					</form>
+				</div>
+				
+				<pre>
+&lt;form&gt;
+	&lt;div class="control-group single-line-form"&gt;
+		&lt;input type="submit" name="submit" value="Send Invite"/&gt;
+		&lt;span class="input-wrapper"&gt;
+			&lt;input type="text" name="inputName" placeholder="Invite a new contributor..." /&gt;
+		&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/form&gt;</pre>
+	
+			</div>
+		</div>
+		
+		<div class="dev-entry">
+			<p>A single line form used mainly in settings. On submit, the form is disabled
+				while a response is retrieved via AJAX.</p>
+			<div class="dev-example">
+				<div class="dev-example-view">
+					<form onsubmit="return false;" data-form-group="1">
+						<div class="control-group single-line-form-ajax">
+							<label for="inputName">Email</label>
+							<div class="control-group single-line-form">
+								<input type="submit" name="submit" value="Save"/>
+								<span class="input-wrapper">
+									<input type="text" name="inputName" placeholder="" />
+								</span>
+							</div>
+						</div>
+					</form>
+				</div>
+				
+				<div class="dev-code">
+					
+					<pre>
+&lt;form&gt;
+	&lt;div class="control-group single-line-form-ajax"&gt;
+		&lt;label for="inputName">Email&lt;/label&gt;
+		&lt;div class="control-group single-line-form"&gt;
+			&lt;input type="submit" name="submit" value="Save"/&gt;
+			&lt;span class="input-wrapper"&gt;
+				&lt;input type="text" name="inputName" placeholder="" /&gt;
+			&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/form&gt;</pre>
+	
+				</div>
+				
+				<div class="dev-example-view">
+					<form data-form-group="2">
+						<div class="control-group single-line-form-ajax loading">
+							<label for="inputName">Email</label>
+							<div class="control-group single-line-form">
+								<input type="submit" name="submit" value="Saving..."/>
+								<span class="input-wrapper">
+									<input type="text" name="inputName" placeholder="Loading" />
+								</span>
+							</div>
+						</div>
+					</form>
+				</div>
+				
+				<div class="dev-code">
+					<pre>
+&lt;form&gt;
+	&lt;div class="control-group single-line-form-ajax loading"&gt;
+		&lt;label for="inputName">Email&lt;/label&gt;
+		&lt;div class="control-group single-line-form"&gt;
+			&lt;input type="submit" name="submit" value="Saving"/&gt;
+			&lt;span class="input-wrapper"&gt;
+				&lt;input type="text" name="inputName" placeholder="Loading" /&gt;
+			&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/form&gt;</pre>
+				</div>
+			</div>
+		</div>
+		
+		<h3>Mulitline forms</h3>
+		
+		<div class="dev-entry">
+			<p>A single styled input.</p>
+			<div class="dev-example">
+				<div class="dev-example-view">
+					<form data-form-group="3">
+						<div class="control-group">
+							<label for="inputName">Email</label>
+							<span class="input-wrapper">
+								<input type="text" name="inputName" placeholder="Invite a new contributor..." />
+							</span>
+						</div>
+					</form>
+				</div>
+				
+				<pre>
+&lt;form&gt;
+	&lt;div class="control-group"&gt;
+		&lt;label for="inputName"&gt;Email&lt;/label&gt;
+		&lt;span class="input-wrapper"&gt;
+			&lt;input type="text" name="inputName" placeholder="Invite a new contributor..." /&gt;
+		&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/form&gt;</pre>
+	
+			</div>
+		</div>
+		
+		<div class="dev-entry">
+			<p>Multiple inputs to be sent all at once.</p>
+			<div class="dev-example">
+				<div class="dev-example-view">
+					<form data-form-group="4">
+						<div class="control-group">
+							<label for="inputName">Email</label>
+							<span class="input-wrapper">
+								<input type="text" name="inputName" />
+							</span>
+						</div>
+						<div class="control-group">
+							<label for="inputName">Name</label>
+							<span class="input-wrapper">
+								<input type="text" name="inputName" />
+							</span>
+						</div>
+						<div class="control-group">
+							<label for="inputName">Favorite color</label>
+							<span class="input-wrapper">
+								<input type="text" name="inputName" />
+							</span>
+						</div>
+						<div class="control-group">
+							<input type="submit" value="Send" />
+						</div>
+					</form>
+				</div>
+				
+				<pre>
+&lt;form&gt;
+	&lt;div class="control-group"&gt;
+		&lt;label for="inputName"&gt;Email&lt;/label&gt;
+		&lt;span class="input-wrapper"&gt;
+			&lt;input type="text" name="inputName" /&gt;
+		&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="control-group"&gt;
+		&lt;label for="inputName"&gt;Name&lt;/label&gt;
+		&lt;span class="input-wrapper"&gt;
+			&lt;input type="text" name="inputName" /&gt;
+		&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="control-group"&gt;
+		&lt;label for="inputName"&gt;Favorite color&lt;/label&gt;
+		&lt;span class="input-wrapper"&gt;
+			&lt;input type="text" name="inputName" /&gt;
+		&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="control-group"&gt;
+		&lt;input type="submit" name="inputName" value="Send" /&gt;
+	&lt;/div&gt;
+&lt;/form&gt;</pre>
+	
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class="dev-section">
+		<h2 id="buttons">Buttons</h2>
+		
+	</div>
+</div>

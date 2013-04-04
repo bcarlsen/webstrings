@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/webstrings/!svn/ver/44/trunk/application/views/test
+END
+autocomplete_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/webstrings/!svn/ver/41/trunk/application/views/test/autocomplete_view.php
+END
+browser_test_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/webstrings/!svn/ver/9/trunk/application/views/test/browser_test_view.php
+END
+styles_test_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/webstrings/!svn/ver/41/trunk/application/views/test/styles_test_view.php
+END
+email_test_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/webstrings/!svn/ver/44/trunk/application/views/test/email_test_view.php
+END
+user_and_login_test_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/webstrings/!svn/ver/41/trunk/application/views/test/user_and_login_test_view.php
+END
+calendar_test_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/webstrings/!svn/ver/44/trunk/application/views/test/calendar_test_view.php
+END
+bookmarklet_test_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/webstrings/!svn/ver/41/trunk/application/views/test/bookmarklet_test_view.php
+END
+bookmarklet_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/webstrings/!svn/ver/23/trunk/application/views/test/bookmarklet_view.php
+END
+modals_test_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/webstrings/!svn/ver/16/trunk/application/views/test/modals_test_view.php
+END
+table_of_contents.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/webstrings/!svn/ver/44/trunk/application/views/test/table_of_contents.php
+END

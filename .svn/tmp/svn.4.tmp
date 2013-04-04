@@ -1,0 +1,9 @@
+ a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.loader-gif {
+  width: 31px;
+  margin: 10px auto;
+}

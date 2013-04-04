@@ -1,0 +1,358 @@
+form {
+  overflow:hidden;
+  
+  .control-group {
+    min-height: 30px;
+    margin: 10px auto;
+    padding: 0 0;
+    overflow: hidden;
+    display: block;
+    
+    &.comments {
+      margin:0;
+      
+      input[type=text] {
+        color: @darkGray;
+        font-family: @normalFont;
+        font-weight: bold;
+        font-size: .75em;
+      }
+    }
+    
+    label {
+      width: auto;
+      height: 30px;
+      float: left;
+      
+      text-align: right;
+      color: @textLightGray;
+      font-size: 1.15em;
+      line-height: 30px;
+    }
+    
+    .input-wrapper {
+      overflow: hidden;
+      display: block;
+      padding: 0 4px 0 8px;
+    }
+    
+    input {
+      .border-radius(4px);
+      color: @textDarkGray;
+      font-size: 1em;
+      font-family: @normalFont;
+      font-weight: 300;
+    }
+    
+    input[type=text], input[type=password] {
+      .textbox;
+    }
+    
+    input[type=submit], input[type=button], button {
+      height: 30px;
+      padding: 0 10px;
+      float: right;
+      
+      border: 1px solid @textGray;
+      background-color: @buttonBaseBlue;
+      .inner-shadow-white(0px, 0px, 5px, 2px, .65);
+      
+      font-weight: bold;
+      
+      .transition(background-color .75s);
+      
+      cursor: pointer;
+      
+      &:hover {
+        color: white;
+        background-color: @buttonHoverBlue;
+      }
+    }
+  
+    &.single-line-form, &.single-line-form-ajax {
+      position: relative;
+  
+      .input-wrapper {
+        padding:0;
+        padding-right: 10px;
+        
+      }
+    
+      input[type=text], input[type=password] {
+        position: relative;
+        z-index: 2;
+        .drop-shadow(5px, 0, 8px, 0px, .15);
+      }
+      
+      input[type=submit] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        padding: 0 10px 0 80%;
+        text-align: right;
+      }
+      
+      &.loading {
+        
+        .single-line-form {
+          pointer-events: none;
+          
+          input[type=submit]{
+            background-color: #DAE336;
+          }
+        }
+      }
+      
+      &.done {
+        
+        .single-line-form {
+          pointer-events: none;
+          
+          input[type=submit]{
+            background-color: #1BBF33;
+          }
+        }
+      }
+      
+      &.error {
+        
+        .single-line-form {
+          pointer-events: none;
+          
+          input[type=submit]{
+            background-color: #E65C5C;
+          }
+        }
+      }
+    }
+    
+    &.single-line-form-ajax {
+      
+      label {
+        width: auto;
+        margin: 5px 0;
+        margin-right: 8px;
+        float: left;
+        //text-align: left;
+        color: @textLightGray;
+        font-size: 1.15em;
+        line-height: 30px;
+      }
+    }
+  }
+  
+}
+
+.textbox(@width: 310px) {
+  width: 100%;
+  height: 30px;
+  padding: 0 10px 0 10px;
+  .box-sizing;
+  
+  border: 1px solid @textGray;
+  
+  &::-webkit-input-placeholder {
+    font-style: italic;
+  }
+  
+  &:-moz-input-placeholder {
+    font-style: italic;
+  }
+  
+  &:-ms-input-placeholder {
+    font-style: italic;
+  }
+}
+
+.switch {
+  width: 77px;
+  height: 22px;
+  border: 1px solid @gray;
+  .border-radius(8px);
+  overflow: hidden;
+  .box-shadow(inset 0 1px 3px #BABABA, inset 0 12px 3px 2px rgba(232, 232, 232, 0.5));
+  cursor: pointer;
+  .perspective(500);
+  
+  input[type=checkbox] {
+    display: none;
+  }
+  
+  &::before {
+    content: "";
+    display: block;
+    height: 22px;
+    width: 0px;
+    position: absolute;
+    .border-radius(7px);
+    .box-shadow(inset 0 1px 2px #0063B7, inset 0 12px 3px 2px rgba(0, 127, 234, 0.5));
+    background-color: #64B1F2;
+  }
+  
+  .thumb {
+    display: block;
+    width: 26px;
+    height: 20px;
+    position: relative;
+    top: 0;
+    z-index: 3;
+    border: solid 1px @gray;
+    .border-radius(7px);
+    .box-shadow(inset 0 2px 1px white, inset 0 -2px 1px white);
+    background-color: @buttonBaseBlue;
+    .inner-shadow-white(0px, 0px, 5px, 2px, .65);
+    .transition(all 0.125s ease-in-out);
+    
+    &:hover {
+      background-color: @buttonHoverBlue;
+    }
+  }
+  
+  &.on {
+    &::before {
+      width: 77px;
+    }
+    
+    .thumb {
+      .translate3d(49px);
+    }
+  }
+}
+
+.ui-autocomplete {
+  position: absolute; 
+  cursor: default;
+  list-style: none;
+  z-index: 1500;
+  
+  font-size: 1.1em;
+  border: 1px solid #dddddd; 
+  .border-radius(8px);
+  background: #ffffff;
+  color: #333333;
+}
+
+.ui-menu {
+  list-style:none;
+  padding: 2px;
+  margin: 0;
+  display:block;
+  float: left;
+  
+  
+  .ui-menu {
+    margin-top: -3px;
+  }
+  
+  .ui-menu-item {
+    margin:0;
+    padding: 0;
+    zoom: 1;
+    float: left;
+    clear: left;
+    width: 100%;
+    
+    a {
+      text-decoration:none;
+      display:block;
+      padding:.2em .4em;
+      line-height:1.5;
+      zoom:1;
+      cursor: pointer;
+      .border-radius(8px);
+      
+      &.ui-state-hover, &.ui-state-active {
+        //font-weight: normal;
+        //margin: -1px;
+        background-color: @ribbonInnerBlue;
+      }
+    }
+  }
+}
+
+.dropdown {
+  float: right;
+  
+  &:hover {
+    background-color: @blue;
+  }
+  
+  .dropdown-selected {
+    width: 50px;
+    padding: 3px;
+    .border-radius(4px);
+    border: 1px solid @gray;
+    font-family: @brandedFont;
+    font-size: .75em;
+    text-align: right;
+    cursor: pointer;
+    
+  } 
+  
+  .dropdown-items {
+    z-index: 100;
+  }
+}
+
+.radio-pills {
+  list-style: none;
+  font-family: @brandedFont;
+  font-size: .75em;
+  
+  
+  li {
+    padding: 3px;
+    display: inline-block;
+    border-top: 1px solid @darkGray;
+    border-left: 1px solid @darkGray;
+    border-bottom: 1px solid @darkGray;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    
+    a {
+      
+    }
+    
+    &.active {
+      background-color: @blue;
+    }
+    
+    &:hover {
+      background-color: @blue;
+    }
+    
+    &:first-child {
+      .border-radiuses(0, 0, 4px, 4px);
+    }
+    
+    &:last-child {
+      border-right: 1px solid @darkGray;
+      .border-radiuses(4px, 4px, 0, 0);
+    }
+  }
+  
+  &.radio-pills-roles {
+    
+    li {
+      width: 30%;
+    }
+  }
+}
+
+.settings-change-photo-container {
+  
+  label {
+    margin-top: 30px;
+  }
+  
+  .settings-change-photo-content{
+    display: block;
+    overflow: hidden;
+    padding-left: 16px;
+  }
+}
+
+
+

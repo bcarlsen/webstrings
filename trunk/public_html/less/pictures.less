@@ -1,0 +1,79 @@
+.pic-cropper {
+  width: 50px;
+  height: 50px;
+  //position: relative;
+  overflow: hidden;
+  float: left;
+  .border-radius(25px);
+  
+  img {
+    width: 50px;
+    margin: auto;
+  }
+  
+  .invited {
+    overflow: hidden;
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    text-align: center;
+    
+    span {
+      padding: 1px 3px;
+      display: block;
+      background-color: white;
+      opacity: .8;
+    }
+  }
+  
+  &.small {
+    width: 36px;
+    height: 36px;
+    .border-radius(18px);
+    img {
+      width: 36px;
+    }
+    
+    .invited {
+      
+    }
+  } 
+}
+
+.contributors-pics {
+  display: block;
+  
+  .contributor-container {
+    width: 50px;
+    //width: 200px;
+    height: 50px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    
+    .transition(width .5s);
+    
+    &:hover {
+      width: 200px;
+    }
+    
+    .contributor-details {
+      width: 133px;
+      height: 36px;
+      position: absolute;
+      top: 0;
+      left: 50px;
+      padding: 5px;
+      padding-left: 10px;
+      float: left;
+      text-align: right;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      border-top: 2px solid @darkBlue;
+      border-right: 2px solid @darkBlue;
+      border-bottom: 2px solid @darkBlue;
+
+      .border-radiuses(4px, 4px, 0, 0);
+    }
+  }
+}

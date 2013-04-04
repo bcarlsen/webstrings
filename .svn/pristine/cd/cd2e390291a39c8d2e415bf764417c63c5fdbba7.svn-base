@@ -1,0 +1,214 @@
+//@import "internalPages/registration"
+
+.right_of_sidebar{
+	margin-left:350px;
+
+
+}
+
+.registration_top_emblem{
+	width: 800px;
+	height: 150px;
+	margin: auto;
+	background: url(../images/sign_up/emblem_with_lines.png);
+	margin-bottom: 20px;
+	margin-top:20px;
+
+
+
+}
+
+.registration_video_div{
+	background: url(../images/sign_up/alpha_bar_repeat.png) repeat-x;
+	height: 500px;
+
+
+	.intro_video{
+		width: 480px;
+		padding-top: 56px;
+		margin: auto;
+
+	}
+
+}
+
+
+.all_registration_forms {
+	width: 50%;
+	margin: auto;
+}
+
+//----------------Alternative Registration Page--------------------
+.alternative_registration_page { 
+	width: 100%;
+	height: 100%;
+	background: url(../images/sign_up/main_image2.png) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+
+.intro_video_box{
+	
+	@width: 55%;
+	width: @width;
+	height: @width;
+	min-width: 400px;
+	min-height: 250px;
+
+	margin: auto;
+	background: white;
+	.border-radius(15px);
+	position: relative;
+	top: 100px;
+
+	opacity: 0.96;
+	border: 2px solid #ccc;
+	text-align: center;
+}
+
+
+.rounded_edges{
+	.border-radius(15px);
+}
+
+.transparent_white{
+	border: 2px solid #ccc;
+	background: white;
+	opacity: 0.92;
+
+}
+
+
+.getting_started_page{
+	width:100%;
+	height:100%;
+		padding-top: 50px;
+	text-align: center;
+
+	background: url(../images/about_us/graph_background.png) repeat-y center center fixed; 
+	.cover;
+}
+
+.getting_started_box{
+	width: 650px;
+	height: 700px;	
+	margin: auto;
+	text-align: center;
+
+}
+
+.getting_started_title{
+	margin-top: 35px;
+	margin-bottom: 20px;
+	font-family: "OstrichSansBlack";
+	font-size:44px;
+	color: #555;
+}
+
+
+.string_it_div{
+	width: 100%	;
+	margin: auto;
+	height: 30px;
+	float: left;
+	text-align: center;
+	color: @gray;
+	font-size: 1.3em;
+	line-height: 30px;
+	margin-top: 50px;
+
+	.string_it_text{
+		width: 510px;
+		margin: auto;
+		margin-bottom: 35px;
+	}
+
+	.image_and_button{
+		width: 440px;
+		margin: auto;
+		margin-top: 20px;
+
+	}
+	a{
+		float: left;
+	}
+
+	.drag_image{
+		float: right;
+		width: 340px;
+		height: 100px;
+		background: url(../images/drag_image.png) no-repeat center center;
+			.cover;
+
+	}
+}
+
+
+.vimeo_video{
+	border: 5px solid @gray;
+}
+
+.sign_up_box{
+	height: 275px;
+	position: relative;
+	top: 30%;
+	min-width: 500px;
+
+}
+
+.play_buttom_image{
+		
+		position: relative;
+		height: 50%;
+		top: 20%;
+		opacity: .95;
+		max-top: 15px;
+
+	}
+
+
+.unclicked_video{
+	width: 80%;
+	height: 80%;
+	margin: auto;
+	background: url(../images/sign_up/w_graphic.png) no-repeat center center;
+	opacity: .98;
+	.contain;
+}
+
+.what_is_text {
+	margin-top: 8%;
+	margin-bottom: -3%;
+	font-family: "OstrichSansBlack";
+	font-size:44px;
+	color: #555;
+}
+
+.sign_up_fields{
+	width: 80%;
+	margin: auto;
+	margin-top: 30px;
+
+}
+
+.sign_up_title{
+	margin-top: 35px;
+
+}
+
+.get_started_button{
+			text-decoration: none;
+			font-family: @brandedFont;
+			font-size:22px;
+			color: white;
+			background-color: @darkBlue;
+			padding:10px;
+			padding-bottom:1px;
+			padding-top:7px;
+			.border-radius(10px);
+			margin: 18px 0px 0px 9px;
+
+}

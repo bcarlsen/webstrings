@@ -1,0 +1,71 @@
+.ribbon {
+  width:100%;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  
+  box-shadow: inset 0 2px 2px 0 rgba(255, 255, 255, 1), inset 0 -2px 2px 0 rgba(255, 255, 255, 1);
+  
+  border-top: 2px solid @ribbonBorderBlue;
+  border-bottom: 2px solid @ribbonBorderBlue;
+  background-color: @ribbonInnerBlue;
+  
+  &.pageHeader {
+    margin: 15px auto;
+    text-align: center;
+    
+    line-height: 3.25em;
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 2.5em;
+    }
+  }
+  
+  div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+    .ribbon-tool {
+      display: inline-block;
+      padding: 8px;
+      
+      color: @textGray;
+      font-family: @brandedFont;
+      text-decoration:none;
+      
+      cursor: pointer;
+      
+      &:hover {
+        color: #000000;
+      }
+      
+      &.trash {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+  
+  .ribbon-text-wrapper {
+    width: 100%;
+    margin: 10px 25px;
+    margin-bottom: 0;
+    
+    color: @textGray;
+    font-family: @brandedFont;
+    
+    font-size: 2em;
+    
+    a.ribbon-text-large {
+      color: @textBlue;
+      
+      .transition(color .5s);
+      
+      &:hover {
+        color: #000000;
+      }
+    }
+  }
+}

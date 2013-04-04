@@ -1,0 +1,39 @@
+
+/////////////////////////////////////
+//              Fonts              //
+/////////////////////////////////////
+@font-face {
+    font-family: "OstrichSansBlack";
+    src: url(../fonts/ostrich-black.ttf) format("truetype");
+}
+
+@normalFont: "Helvetica Neue", Helvetica, Arial;
+@brandedFont: "OstrichSansBlack", Helvetica, Arial;
+
+
+/////////////////////////////////////
+//             Colors              //
+/////////////////////////////////////
+
+@blue: #d1ebfa;
+@lightBlue: #F5FAFE;
+@darkBlue: #4490d0;
+@gray: #959595;
+@lightGray: lighten(@gray, 25%);
+@darkGray: darken(@gray, 30%);
+@white: #f2f2f2;
+
+@shadow: #000000;
+
+@ribbonInnerBlue: @blue;
+@ribbonBorderBlue: @darkBlue;
+
+@textGray: @gray;
+@textDarkGray: @darkGray;
+@textLightGray: darken(@lightGray, 8%);
+@textBlue: @darkBlue;
+
+@listboxHighlight: @lightBlue;
+
+@buttonBaseBlue: #9dd3f4;
+@buttonHoverBlue: darken(@buttonBaseBlue, 15%);

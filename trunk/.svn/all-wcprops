@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/webstrings/!svn/ver/46/trunk
+END
+license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/webstrings/!svn/ver/2/trunk/license.txt
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/webstrings/!svn/ver/2/trunk/.project
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/webstrings/!svn/ver/46/trunk/.htaccess
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/webstrings/!svn/ver/37/trunk/index.php
+END

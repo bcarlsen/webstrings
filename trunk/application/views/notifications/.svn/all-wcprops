@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/webstrings/!svn/ver/39/trunk/application/views/notifications
+END
+contributor_added.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/webstrings/!svn/ver/39/trunk/application/views/notifications/contributor_added.php
+END
+new_comment.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/webstrings/!svn/ver/39/trunk/application/views/notifications/new_comment.php
+END
+page_added.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/webstrings/!svn/ver/39/trunk/application/views/notifications/page_added.php
+END
+invite.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/webstrings/!svn/ver/39/trunk/application/views/notifications/invite.php
+END
+invite_accepted.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/webstrings/!svn/ver/39/trunk/application/views/notifications/invite_accepted.php
+END

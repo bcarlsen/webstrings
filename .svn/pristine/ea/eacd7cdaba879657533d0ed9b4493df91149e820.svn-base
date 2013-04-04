@@ -1,0 +1,155 @@
+/*
+<html>
+<head>
+<link rel="stylesheet" href="<?php echo base_url(); ?>/public_html/css/emails.css">
+
+
+</head>
+<body>
+
+<div class="invite_main">
+	<div class="invite_banner"></div>
+	<p class="invite_text"><span class="invite_emphasis_text">David Muthafucka Rockwood </span> has invited you to join Webstrings - a beautiful new tool that makes colaborative research possible.<br><br> Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Daniel Haarburger</p>
+	<div class="get_started_button"><img src="../../../public_html/images/email/get_started_button.png" /></div>
+
+</div>
+
+
+
+</body>
+
+
+</html>*/
+@import 'variables';
+@import 'mixins';
+
+
+
+
+.email_body{
+	background-color: #536879;
+	width: 100%;
+	height: 100%;
+	padding-top: 50px;
+
+
+}
+.invite_main {
+	width: 650px;
+	margin: auto;
+	border: 1px solid @gray;
+	padding: 25px;
+	padding-bottom: 25px;
+	background-color: white;
+
+
+	p {
+		padding: 0px 15px 15px 15px;
+		font-family: @normalFont;
+		color: @gray;
+		font-size: 20px;
+
+
+		.invite_emphasis_text{
+			font-family: @brandedFont;
+			font-size:28px;
+			color: @darkGray;
+		}
+
+	}
+
+	a{
+			text-decoration: none;
+			font-family: @brandedFont;
+			font-size:28px;
+			color: white;
+			background-color: @darkBlue;
+			padding:15px;
+			padding-bottom:6px;
+			.border-radius(10px);
+			
+			&:hover{
+				background-color: @veryDarkBlue;
+
+			}
+
+			&:active{
+				background-color: @veryVeryDarkBlue;
+			}
+
+
+		}
+
+	hr{
+		margin-bottom: 20px;
+
+	}
+
+
+}
+
+.get_started_button{
+	width: 200px;
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 50px;
+
+}
+
+.invite_banner {
+	width: 100%;
+	height: 200px;
+	background: url("../images/email/invited_banner.png") no-repeat;
+	.contain;
+}
+
+.join_banner {
+	width: 100%;
+	height: 200px;
+	background: url("../images/email/join_banner.png") no-repeat;
+	.contain;
+	margin-bottom: -10px;
+}
+
+.email_footer{
+	display: inline;
+
+	li {
+		display: inline;
+		opacity: 0.5;
+
+		a{
+			padding: 10px 10px 5px 10px;
+			font-size: 20px;
+			.border-radius(5px);
+		}
+	}
+}
+
+
+.bottom_text {
+	float: right;
+	margin: 0px 2px 0px 2px;
+
+	a{
+		background-color: white;
+		color: @gray;
+
+	}
+	
+	a:hover {
+		color: white;
+
+	}
+}
+
+.join_main {
+	text-align: center;
+}
+
+.string_name{
+	font-family: @brandedFont;
+	color: @veryDarkBlue;
+	font-weight: bold;
+
+}

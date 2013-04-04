@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/webstrings/!svn/ver/46/trunk/application/views/email
+END
+template.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/webstrings/!svn/ver/46/trunk/application/views/email/template.php
+END
+anony_url.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/webstrings/!svn/ver/46/trunk/application/views/email/anony_url.php
+END
+contributor_invite.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/webstrings/!svn/ver/46/trunk/application/views/email/contributor_invite.php
+END
