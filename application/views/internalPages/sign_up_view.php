@@ -5,6 +5,17 @@
 		<h1 class="what_is_text sign_up_title">Sign Up For Webstrings</h1>
 		<div class="sign_up_fields">
 			<form action="<?php echo site_url('internalPages/new_user_registration'); ?>" method="post">
+			<div class="control-group">
+					<label for="f_name">First Name</label>
+					<span class="input-wrapper">
+						<input type="text" name="fname" value="<?php echo set_value('fname'); ?>" />
+					</span>
+					
+					<label for="l_name">Last Name</label>
+					<span class="input-wrapper">
+						<input type="text" name="lname" value="<?php echo set_value('lname'); ?>" />
+					</span>
+				</div>
 				<div class="control-group">
 					<label for="email">Email</label>
 					<span class="input-wrapper">
