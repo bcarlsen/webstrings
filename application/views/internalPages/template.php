@@ -13,7 +13,6 @@
 		
 	</head>
 	<body class="scrollable">
-		
 <?php $this->load->view('internalPages/'.$view_file); ?>
 
 	<script type="text/javascript">

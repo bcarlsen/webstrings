@@ -35,7 +35,7 @@ class InternalPages extends CI_Controller {
 			$this->form_validation->set_rules('lname', 'Last Name', 'trim|required|alpha_dash|xss_clean|ucfirst');
 			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.email]|xss_clean');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required|matches[password_conf]');
-			$this->form_validation->set_rules('password_conf', 'Password confirmation', 'trim|required|matches[password]');
+			$this->form_validation->set_rules('password_conf', 'Confirm Password', 'trim|required|matches[password]');
 			
 			if($this->form_validation->run() != FALSE){
 				
@@ -53,6 +53,10 @@ class InternalPages extends CI_Controller {
 				echo '<script type="text/javascript">';
 				echo 'top.location.href="'.site_url('browser').'";';
 				echo '</script>';
+			}
+			else {
+				$data['view_file'] = 'sign_up_view';
+				$this->load->view('internalPages/template', $data);
 			}
 		} else {
 			$data['view_file'] = 'sign_up_view';
