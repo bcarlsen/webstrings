@@ -6,6 +6,7 @@ class Browser extends CI_Controller {
 		parent::__construct();
 		
 		$this->load->helper(array('url', 'login'));
+		$this->load->library('form_validation');
 		
 		$vars = array(
 			'title' => 'WebStrings',
@@ -35,7 +36,44 @@ class Browser extends CI_Controller {
 		$data['browser_view_file'] = 'string_list_view';
 		$this->load->view('std_template', $data);
 	}
+	function log_in(){
+		
+		if($this->input->post('submit') != FALSE){
+			$this->load->model('User_model');
+			$this->load->library('form_validation');
+			
+			$this->form_validation->set_rules('email', 'Credentials', 'callback__authenticate_user[password]');
+			$email = $this->input->post('email');
+			$password = $this->input->post('password');
+			
+			if ($this->form_validation->run() != FALSE) { 
+				$user = $this->User_model->get_user_by_email($email);
+				log_in($user->id);
+			}
+			else {
+				$this->not_logged_in_browser();
+			}
+			
+			//$params = $_SERVER['QUERY_STRING'] ? '?'.$_SERVER['QUERY_STRING'] : '';
+			
+			//redirect('browser');//.$params);
+			
+		} else {
+			//$data['params'] = $_SERVER['QUERY_STRING'] ? '?'.$_SERVER['QUERY_STRING'] : '';
+			
+		}
+	}	
 	
+	function _authenticate_user($email, $password) {
+		$this->load->model('User_model');
+		if ($this->User_model->authenticate_credentials($email, md5($password))) {
+			return TRUE;
+		}
+		
+		$this->form_validation->set_message('_authenticate_user', 'The email or password you entered is incorrect.');
+		return FALSE;
+	}
+/*
 	function log_in(){
 		
 		if($this->input->post('submit') != FALSE){
@@ -48,6 +86,9 @@ class Browser extends CI_Controller {
 				$user = $this->User_model->get_user_by_email($email);
 				log_in($user->id);
 			}
+			else {
+				die("invalid credentials");
+			}
 			
 			//$params = $_SERVER['QUERY_STRING'] ? '?'.$_SERVER['QUERY_STRING'] : '';
 			
@@ -58,7 +99,7 @@ class Browser extends CI_Controller {
 			
 		}
 	}
-	
+*/	
 	function logged_in_browser(){
 		$this->load->model(array('User_model', 'String_model', 'Notifications_model'));
 		

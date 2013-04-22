@@ -28,6 +28,9 @@
 			<input type="submit" name="submit" value="Login" />
 		</div>
 	</form>
+	<div class="form_errors">
+			<?php echo validation_errors(); ?>
+	</div>
 	
 </div>
 
