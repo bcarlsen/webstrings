@@ -11,7 +11,7 @@
 			<a>
 				<div class="text">
 					<h3><?php echo $string->title; ?></h3>
-					<p><?php echo $string->description; ?></p>
+					<p><?php // echo $string->description; ?></p>
 				</div>
 				<div class="arrow"><img src="<?php echo base_url('public_html/images/browser/string-arrow.png') ?>" /></div>
 			</a>

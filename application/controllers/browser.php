@@ -19,7 +19,8 @@ class Browser extends CI_Controller {
 		$this->load->vars($vars);
 	}
 	
-	function index() {		
+	function index() {	
+	
 		if(is_logged_in()) {
 			$this->logged_in_browser();
 		} else {
@@ -42,10 +43,10 @@ class Browser extends CI_Controller {
 			$this->load->model('User_model');
 			$this->load->library('form_validation');
 			
-			$this->form_validation->set_rules('email', 'Credentials', 'callback__authenticate_user[password]');
 			$email = $this->input->post('email');
 			$password = $this->input->post('password');
 			
+			$this->form_validation->set_rules('email', 'Credentials', 'callback__authenticate_user['. $password. ']'); // authenticate user
 			if ($this->form_validation->run() != FALSE) { 
 				$user = $this->User_model->get_user_by_email($email);
 				log_in($user->id);
@@ -56,7 +57,7 @@ class Browser extends CI_Controller {
 			
 			//$params = $_SERVER['QUERY_STRING'] ? '?'.$_SERVER['QUERY_STRING'] : '';
 			
-			//redirect('browser');//.$params);
+			redirect('browser');//.$params);
 			
 		} else {
 			//$data['params'] = $_SERVER['QUERY_STRING'] ? '?'.$_SERVER['QUERY_STRING'] : '';
@@ -66,14 +67,15 @@ class Browser extends CI_Controller {
 	
 	function _authenticate_user($email, $password) {
 		$this->load->model('User_model');
-		if ($this->User_model->authenticate_credentials($email, md5($password))) {
+		if ($this->User_model->authenticate_credentials($email, md5($password))) { // authenticate user
 			return TRUE;
 		}
 		
+		// set failure message
 		$this->form_validation->set_message('_authenticate_user', 'The email or password you entered is incorrect.');
 		return FALSE;
 	}
-/*
+/*  Old Log In function
 	function log_in(){
 		
 		if($this->input->post('submit') != FALSE){

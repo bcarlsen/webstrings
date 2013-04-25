@@ -35,13 +35,13 @@ class InternalPages extends CI_Controller {
 			$this->form_validation->set_rules('lname', 'Last Name', 'trim|required|alpha_dash|xss_clean|ucfirst');
 			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.email]|xss_clean');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required|matches[password_conf]');
-			$this->form_validation->set_rules('password_conf', 'Confirm Password', 'trim|required|matches[password]');
+			$this->form_validation->set_rules('password_conf', 'Confirm Password', 'trim|required');
 			
 			if($this->form_validation->run() != FALSE){
 				
 				$dataSet = array(
-					'first_name' => $this->input->post('fname'),
-					'last_name' => $this->input->post('lname'),
+					'f_name' => $this->input->post('fname'),
+					'l_name' => $this->input->post('lname'),
 					'email' => $this->input->post('email'),
 					'date_created' => strftime("%Y-%m-%d %H:%M:%S", time())
 				);

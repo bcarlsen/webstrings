@@ -2,8 +2,15 @@
 
 <div class="comment-container">
 	<div class="comment-pic">
+	<!-- User Picture
 		<div class="pic-cropper">
 			<img src="<?php if($comment->fb) echo $comment->pic_url; else echo base_url()."public_html/images/default_avatar.png"; ?>" />
+		</div>
+	-->
+		<div class="name">
+			<span class="user_name">
+				<?php echo $comment->fullname; ?>
+			</span>
 		</div>
 	</div>
 	<div class="comment-content">

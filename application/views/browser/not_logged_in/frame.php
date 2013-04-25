@@ -15,7 +15,7 @@
 		<div class="control-group">
 			<label for="email">Email</label>
 			<span class="input-wrapper">
-				<input type="text" name="email" />
+				<input type="text" name="email" value="<?php echo set_value('email'); ?>"/>
 			</span>
 		</div>
 		<div class="control-group">
