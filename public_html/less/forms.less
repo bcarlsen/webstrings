@@ -3,7 +3,7 @@ form {
   
   .control-group {
     min-height: 30px;
-    margin: 10px auto;
+    margin: 0 auto;
     padding: 0 0;
     overflow: hidden;
     display: block;
@@ -59,8 +59,7 @@ form {
     }
     
     input {
-      .border-radius(4px);
-      color: @textDarkGray;
+      .border-radius(20px);
       font-size: 1em;
       font-family: @normalFont;
       font-weight: 300;
@@ -68,26 +67,37 @@ form {
     
     input[type=text], input[type=password] {
       .textbox;
+      margin: 5px 0;
+
     }
     
     input[type=submit], input[type=button], button {
       height: 30px;
-      padding: 0 10px;
+      padding: 20px 0;
+      width: 80%;
+      margin: 5px;
       float: right;
+      color: white;
+
       
-      border: 1px solid @textGray;
-      background-color: @buttonBaseBlue;
-      .inner-shadow-white(0px, 0px, 5px, 2px, .65);
+      border: none;
+      background-color: @darkBlue;
+      -webkit-box-shadow: 2px 2px 0px 1px #shadowBlue;
+      box-shadow: 2px 2px 0px 2px @shadowBlue;
+      //.inner-shadow-white(0px, 0px, 5px, 2px, .65);
       
       font-weight: bold;
+      letter-spacing: 2px;
+      font-size: 12px;
+      line-height: 3px;
       
-      .transition(background-color .75s);
+      .transition(background-color .5s);
       
       cursor: pointer;
       
       &:hover {
         color: white;
-        background-color: @buttonHoverBlue;
+        background-color: @blue;
       }
     }
   
@@ -168,11 +178,11 @@ form {
 
 .textbox(@width: 310px) {
   width: 100%;
-  height: 30px;
+  height: 40px;
   padding: 0 10px 0 10px;
   .box-sizing;
   
-  border: 1px solid @textGray;
+  border: 1px solid #ccc;
   
   &::-webkit-input-placeholder {
     font-style: italic;
