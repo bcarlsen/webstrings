@@ -1,12 +1,17 @@
 
 <div id="browser">
 	<a id="hideMe"><span>Hide Bar</span></a>
-	<div class="header">
-		<a href="<?php echo site_url('browser'); ?>"><h1>WEBSTRINGS</h1></a>
 	
-			<?php echo '<h3>'.$user->f_name.' '.$user->l_name.'</h3>'; ?>
-		
-			<div class="toolbar">
+
+	<div class="header">
+			
+			<div class="corner_logo float_left">
+			<a href="<?php echo site_url('browser'); ?>"><span>WEBSTRINGS</span></a>
+			</div>
+			<div class="right_corner_name float_right bold_gray_text">
+			<?php echo '<span>' .$user->f_name.'</span>'; ?>
+			</div>
+			<!-- <div class="toolbar">
 				<div class="toolbar-item">
 					<div class="toolbar-icon">
 						<i class="icon icon-globe"></i>
@@ -33,7 +38,7 @@
 				</div>
 					
 				
-			</div>
+			</div> -->
 			
 			<a class="view-all-strings-link" href="javascript:closeString()">&laquo; View All Strings</a>
 			
