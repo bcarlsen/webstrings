@@ -34,8 +34,8 @@ class InternalPages extends CI_Controller {
 			$this->form_validation->set_rules('fname', 'First Name', 'trim|required|alpha_dash|xss_clean|ucfirst');
 			$this->form_validation->set_rules('lname', 'Last Name', 'trim|required|alpha_dash|xss_clean|ucfirst');
 			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.email]|xss_clean');
-			$this->form_validation->set_rules('password', 'Password', 'trim|required|matches[password_conf]');
-			$this->form_validation->set_rules('password_conf', 'Confirm Password', 'trim|required');
+			$this->form_validation->set_rules('password', 'Password', 'trim|required');
+			//$this->form_validation->set_rules('password_conf', 'Confirm Password', 'trim|required|matches[password]');
 			
 			if($this->form_validation->run() != FALSE){
 				
