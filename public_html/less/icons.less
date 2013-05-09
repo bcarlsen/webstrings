@@ -1,14 +1,23 @@
 .icon {
+  @icon-base: "../images/icons";
+  @icon-sprite: "../images/icon-sprite.png";
+  
   margin: auto;
   display: block;
-  background: url(../images/icon-sprite.png) no-repeat top left;
+  background: no-repeat;
+  background-image: url(@icon-sprite);
+  width: 30px;
+  height: 30px;
+  padding: 2px;
   
   &.icon-gear{ 
-    background-position: 0 -1087px; width: 18px; height: 20px;
+    background-image: url("@{icon-base}/gear.png");
+	background-size: contain;
   }
    
   &.icon-globe{ 
-    background-position: 0 -1157px; width: 20px; height: 20px;
+    background-image: url("@{icon-base}/notifications.png");
+	background-size: contain;
   }
   
   &.icon-tag{ 
@@ -108,14 +117,15 @@
   }
   
   &.icon-new-string{ 
-    background-position: 0 -344px; width: 58px; height: 37px; 
+    background-image: url("@{icon-base}/plus.png"); 
+	background-size: contain;
     
     &:hover {
-      background-position: 0 -257px; width: 58px; height: 37px;
+      //background-position: 0 -257px; width: 58px; height: 37px;
     }
     
     &.active {
-      background-position: 0 -170px; width: 58px; height: 37px;
+      //background-position: 0 -170px; width: 58px; height: 37px;
     }
   }
   
@@ -129,6 +139,27 @@
     &.active {
       background-position: 0 -1910px; width: 79px; height: 39px;
     }
+  }
+  
+  &.icon-home {
+	background-image: url("@{icon-base}/house.png");
+	background-size: contain;
+	
+	&:hover {
+	
+	}
+	
+	&.active {
+	
+	}
+  }
+  
+  &.right-separator {
+	display: inline-block;
+	width: 2px;
+	padding: 0;
+	height: 85%;
+	background-color: @veryDarkBlue;
   }
 }
 
