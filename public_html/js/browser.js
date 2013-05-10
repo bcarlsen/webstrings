@@ -15,7 +15,7 @@ $(document).ready(function() {
 	
 	$("#hideMe").toggle(function() {
 		$("#browser").animate({ 
-			"margin-left": "-350px", 
+			"margin-left": "-315px", 
 			'boxShadowX': '0px', 
 			'boxShadowY':'0px', 
 			'boxShadowBlur': '0px'
@@ -370,7 +370,8 @@ function addComment() {
         url: form.attr('action'),
         data: form.serialize(),
         dataType: "html"
-    });	form.find("input[type=text]").first().val('');
+    });
+	form.find("input[type=text]").first().val('');
 	//browserScroll.reinitialise();
     return false;
 }
