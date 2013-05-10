@@ -15,7 +15,7 @@ $(document).ready(function() {
 	
 	$("#hideMe").toggle(function() {
 		$("#browser").animate({ 
-			"margin-left": "-350px", 
+			"margin-left": "-315px", 
 			'boxShadowX': '0px', 
 			'boxShadowY':'0px', 
 			'boxShadowBlur': '0px'

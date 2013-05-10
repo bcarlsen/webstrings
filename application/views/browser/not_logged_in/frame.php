@@ -13,7 +13,7 @@
 	<div class="blue_body_bar">
 		<div class="central_tag_image"></div>
 		<div class="welcome_text">
-			<h1>Simple, Collaborative Research"</h1>
+			<h1>"Simple, Collaborative Research"</h1>
 			<h2>We're still testing. Will be live soon</h2>
 		</div>
 
