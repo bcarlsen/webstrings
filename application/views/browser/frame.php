@@ -50,7 +50,7 @@
 	</div>
 
 	<div class="under_ribbon">
-		<a class="view-all-strings-link" href="javascript:closeString()">&laquo;BACK TO ALL</a>
+		<a class="view-all-strings-link" id="view-all-button" href="javascript:closeString()">&laquo;BACK TO ALL</a>
 				
 				<script type="text/javascript">
 					
@@ -80,7 +80,7 @@
 					
 				</script>
 
-		<a href="" class="view-all-strings-link">+ Add Page</a>
+		<a href="" class="view-all-strings-link" id="add-page-link">+  Add Page</a>
 		<div class="trash-icon-wrapper view-all-strings-link">
 			<div id="page-trash-icon" class=""></div>
 		</div>

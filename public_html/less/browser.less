@@ -247,6 +247,7 @@ margin: auto;
       
       &.active {
         background-color: @highlightBlue;
+        margin-left:0;
 
         
         a {
@@ -292,8 +293,12 @@ margin: auto;
           h4 {
             font-family: @normalFont;
             text-transform: none;
-            color: @textGray;
+            color: @darkGray;
             font-weight: 400;
+          }
+
+          h4:hover{
+            color: @textGray;
           }
           
         }
@@ -302,10 +307,10 @@ margin: auto;
           width: 10px;
           height: 10px;
           position: absolute;
-          top: 15px;
-          left: 45px;
+          top: 18px;
+          left: 12px;
           .border-radius(5px);
-          background-color: @darkBlue;
+          background-color: @blue;
         }
         
         
@@ -316,6 +321,7 @@ margin: auto;
           
           &.active {
             background-color: @highlightBlue;
+            color: black;
           }
         
         
@@ -377,22 +383,51 @@ margin: auto;
 }
 
 .trash-icon-wrapper{
-    width: 22px;
+    width: 30px;
     height: 22px;
     float: right;
     background-color: white;
-    margin-top:-2px;
+    margin-top:-1px;
     margin-right: 4px;
     padding: 0;
+    opacity: 0.5;
 
 }
 
 
 #page-trash-icon{
   background-image: url('../images/icons/trash_gray.png');
-  width: 18px 18px;
+  width: 12px;
+  height: 15px;
   margin: auto;
-  background-size: 18px 18px;
+  margin-top:3px;
+  background-size: 14px 14px;
+  background-size: contain;
 }
 
+.trash-icon-wrapper:hover{
+  opacity: 1;
+}
 
+#add-page-link{
+  padding-left: 18px;
+  padding-right: 18px;
+  color: @blue;
+  opacity: 0.5;
+  z-index: 5;
+
+}
+
+#add-page-link:hover{
+  opacity: 1;
+}
+
+#view-all-button{
+  padding-left: 16px;
+  padding-right: 16px;
+  opacity: 0.5;
+}
+
+#view-all-button:hover{
+  opacity: 1;
+}
