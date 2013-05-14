@@ -115,12 +115,25 @@
 }
 
 .under_ribbon{
+  margin-left: 4px;
+  margin-bottom: 5px;
+  margin-top: -1px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  font-family: @normalFont;
+  font-weight: bold;
+
 }
+
+margin: auto;
+
 .view-all-strings-link {
-    margin-left: 15px;
     
-    color: @textLightGray;
-    text-decoration: none;  
+    color: @darkGray;
+    text-decoration: none; 
+    padding: 6px 8px 5px 8px;
+    background-color: white; 
     
     .transition(color .5s);
     
@@ -234,6 +247,7 @@
       
       &.active {
         background-color: @highlightBlue;
+        margin-left:0;
 
         
         a {
@@ -279,8 +293,12 @@
           h4 {
             font-family: @normalFont;
             text-transform: none;
-            color: @textGray;
+            color: @darkGray;
             font-weight: 400;
+          }
+
+          h4:hover{
+            color: @textGray;
           }
           
         }
@@ -289,10 +307,10 @@
           width: 10px;
           height: 10px;
           position: absolute;
-          top: 15px;
-          left: 45px;
+          top: 18px;
+          left: 12px;
           .border-radius(5px);
-          background-color: @darkBlue;
+          background-color: @blue;
         }
         
         
@@ -303,6 +321,7 @@
           
           &.active {
             background-color: @highlightBlue;
+            color: black;
           }
         
         
@@ -363,15 +382,52 @@
   
 }
 
+.trash-icon-wrapper{
+    width: 30px;
+    height: 22px;
+    float: right;
+    background-color: white;
+    margin-top:-1px;
+    margin-right: 4px;
+    padding: 0;
+    opacity: 0.5;
 
-#page-trash-icon{
-  width: 18px;
-  height: 18px;
-  background-image: url('../images/icons/trash_white.png');
-  background-size: 18px 18px;
-  background-color: @gray;
-  background: contains;
-  float: right;
 }
 
 
+#page-trash-icon{
+  background-image: url('../images/icons/trash_gray.png');
+  width: 12px;
+  height: 15px;
+  margin: auto;
+  margin-top:3px;
+  background-size: 14px 14px;
+  background-size: contain;
+}
+
+.trash-icon-wrapper:hover{
+  opacity: 1;
+}
+
+#add-page-link{
+  padding-left: 18px;
+  padding-right: 18px;
+  color: @blue;
+  opacity: 0.5;
+  z-index: 5;
+
+}
+
+#add-page-link:hover{
+  opacity: 1;
+}
+
+#view-all-button{
+  padding-left: 16px;
+  padding-right: 16px;
+  opacity: 0.5;
+}
+
+#view-all-button:hover{
+  opacity: 1;
+}
