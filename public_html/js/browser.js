@@ -370,7 +370,8 @@ function addComment() {
         url: form.attr('action'),
         data: form.serialize(),
         dataType: "html"
-    });	form.find("input[type=text]").first().val('');
+    });
+	form.find("input[type=text]").first().val('');
 	//browserScroll.reinitialise();
     return false;
 }

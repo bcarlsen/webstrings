@@ -197,7 +197,7 @@
       }
       
       &.active {
-        background-color: @listboxHighlight;
+        background-color: @highlightBlue;
         
         a {
           // padding: 25px 0;
@@ -221,15 +221,17 @@
         overflow:hidden;
         position:relative;
         cursor: pointer;
+        margin: 5px 0;
+
         
         a:not(.page-delete) {
           min-height: 20px;
           margin-left: 60px;
           padding: 10px 0 10px 15px;
           display:block;
-          border-bottom: 1px solid @ribbonBorderBlue;
           text-decoration:none;
           
+
           h4 {
             font-family: @normalFont;
             text-transform: none;
@@ -252,11 +254,11 @@
         .page-info {
           
           &:hover {
-            background-color: @listboxHighlight;
+            background-color: @highlightBlue;
           }
           
           &.active {
-            background-color: @listboxHighlight;
+            background-color: @highlightBlue;
           }
         }
         

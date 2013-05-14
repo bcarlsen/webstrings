@@ -40,35 +40,7 @@
 				
 			</div> -->
 			
-			<a class="view-all-strings-link" href="javascript:closeString()">&laquo; View All Strings</a>
-			
-			<script type="text/javascript">
-				
-				Pusher.channel_auth_endpoint = '<?php echo site_url('browser/pusher_auth'); ?>';
-				var pusher = new Pusher('e8910e066e06190cb4cd');
-				var noteChannel = pusher.subscribe('private-<?php echo $user->id; ?>-notes');
-				
-				noteChannel.bind('newNote', function(data) {
-					var content = "<li";
-					if(data.unread)
-						content += " class=\"unread\"";
-					content += ">" + data.body + "</li>";
-					
-					if(notesScroll == null) {
-						$(".toolbar-notifications ul").first().prepend(content);
-					} else {
-						notesScroll.getContentPane().find("ul").first().prepend(content);
-						reinitialiseNoteScroller();
-					}
-					
-					// add to badge
-					var badge = $(".note-badge");
-					badge.text(parseInt(badge.text()) + 1);
-					if(badge.css("display") == "none")
-						badge.show();
-				});
-				
-			</script>
+	
 	</div>
 	
 	<div class="ribbon">
@@ -76,7 +48,42 @@
 			<?php $this->load->view('browser/'.$browser_ribbon_file); ?>
 		</div>
 	</div>
-	
+
+	<div class="under_ribbon">
+		<a class="view-all-strings-link" href="javascript:closeString()">&laquo; View All Strings</a>
+				
+				<script type="text/javascript">
+					
+					Pusher.channel_auth_endpoint = '<?php echo site_url('browser/pusher_auth'); ?>';
+					var pusher = new Pusher('e8910e066e06190cb4cd');
+					var noteChannel = pusher.subscribe('private-<?php echo $user->id; ?>-notes');
+					
+					noteChannel.bind('newNote', function(data) {
+						var content = "<li";
+						if(data.unread)
+							content += " class=\"unread\"";
+						content += ">" + data.body + "</li>";
+						
+						if(notesScroll == null) {
+							$(".toolbar-notifications ul").first().prepend(content);
+						} else {
+							notesScroll.getContentPane().find("ul").first().prepend(content);
+							reinitialiseNoteScroller();
+						}
+						
+						// add to badge
+						var badge = $(".note-badge");
+						badge.text(parseInt(badge.text()) + 1);
+						if(badge.css("display") == "none")
+							badge.show();
+					});
+					
+				</script>
+
+		<a href="" class="view-all-strings-link">+ Add Page</a>
+		<div id="page-trash-icon" class="view-all-strings-link"></div>
+
+	</div>	
 	<div id="browserList" data-filter="my_strings">
 		
 		<?php $this->load->view('browser/'.$browser_view_file); ?>
