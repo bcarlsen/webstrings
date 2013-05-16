@@ -208,11 +208,16 @@ class Browser extends CI_Controller {
 	function ribbon_picker($ribbon_type) {
 		if(!is_logged_in())
 			redirect('browser');
-			
+		
+		$this->load->model(array('Notifications_model', 'User_model'));
+		$cur_user = $this->User_model->current_user();
+		$data['notes'] = $this->Notifications_model->get_notes_for_user($cur_user->id);
+		$data['unread_notes'] = $this->Notifications_model->get_num_unread_notes_for_user($cur_user->id);
+		
 		switch ($ribbon_type) {
 			case "view_strings":
 				
-				$this->load->view('browser/strings_ribbon');
+				$this->load->view('browser/strings_ribbon', $data);
 				break;
 			case "view_pages":
 				$this->load->model(array('String_model', 'User_model'));

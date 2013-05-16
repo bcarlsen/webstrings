@@ -9,9 +9,9 @@
 	<a class="ribbon-tool"><i class="icon icon-globe">
 		<span class="badge notification-badge">
 			<?php 
-				//if ($unread_notes > 0) {
-				//	echo $unread_notes;
-				//}		
+				if ($unread_notes > 0) {
+					echo $unread_notes;
+				}		
 			?>
 		</span>
 	</i></a>
