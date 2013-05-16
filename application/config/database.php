@@ -48,10 +48,17 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';  //'wsdbv1.db.6449716.hostedresource.com'; 
+// Toggle Between Database Options
+//$db['default']['hostname'] = 'localhost'; 
+$db['default']['hostname'] = 'wsdbv1.db.6449716.hostedresource.com'; 
+
 $db['default']['username'] = 'wsdbv1';
 $db['default']['password'] = 'GummiBear5!';
-$db['default']['database'] = 'webstrings';  //'wsdbv1'; 
+
+// Toggle Between Database Options
+$db['default']['database'] = 'wsdbv1';
+// $db['default']['database'] = 'webstrings';  
+
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
