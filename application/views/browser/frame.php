@@ -45,7 +45,11 @@
 	
 	<div class="ribbon">
 		<div>
-			<?php $this->load->view('browser/'.$browser_ribbon_file); ?>
+			<?php 
+				$data['notes'] = $notes;
+				$data['unread_notes'] = $unread_notes;
+				$this->load->view('browser/'.$browser_ribbon_file); 
+			?>
 		</div>
 	</div>
 
