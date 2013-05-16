@@ -56,7 +56,7 @@
 	</form>
 	
 	<hr />
-	
+<!--	PICTURE
 	<form action="<?php echo site_url('modals/upload_photo'); ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data" target="upload_target" data-form-group="1">
 		<div class="control-group settings-change-photo-container">
 			<label>Photo</label>
@@ -74,7 +74,7 @@
 	</form>
 	<iframe class="settings-upload-target" name="upload_target" ></iframe>
 </div>
-
+-->
 
 <!-- end modal-content -->
 
