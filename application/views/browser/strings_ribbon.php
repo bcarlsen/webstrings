@@ -1,10 +1,10 @@
-<a class="ribbon-tool right-separator" href="javascript:buildModal('<?php echo site_url('modals/new_string'); ?>', 'modal-new-string')"><i class="icon icon-new-string"></i></a>
+<a class="ribbon-tool right-separator" href="javascript:buildModal('<?php echo site_url('modals/new_string'); ?>', 'modal-new-string')"><i class="icon all-strings-icon icon-new-string"></i></a>
 <span class="icon right-separator"></span>
 
 <a class="ribbon-tool" href="<?php echo site_url('browser'); ?>"><i class="icon icon-home"></i></a>
 
 <div class="ribbon-tool-group dropdown-tool">
-	<a class="ribbon-tool"><i class="icon icon-globe">
+	<a class="ribbon-tool"><i class="icon all-strings-icon icon-globe">
 		<span class="badge notification-badge">
 			<?php 
 				if ($unread_notes > 0) {
@@ -32,7 +32,7 @@
 
 <div class="ribbon-tool-group dropdown-tool">
 	<a class="ribbon-tool">
-		<i class="icon icon-gear"></i>
+		<i class="icon all-strings-icon icon-gear"></i>
 	</a>
 	<ul class="dropdown dropdown-menu">
 		<li><a>Invite Friends</a></li>
