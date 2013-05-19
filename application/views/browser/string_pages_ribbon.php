@@ -1,12 +1,12 @@
-<a class="ribbon-tool" href="javascript:buildModal('<?php echo site_url('modals/contributors/'.$string_id); ?>', 'modal-contributors')"><i class="icon icon-add-user"></i></a>
+<a class="ribbon-tool" href="javascript:buildModal('<?php echo site_url('modals/contributors/'.$string_id); ?>', 'modal-contributors')"><i class="icon string-open-icon icon-add-user"></i></a>
 
-<a class="ribbon-tool" href="javascript:buildModal('<?php echo site_url('modals/share/'.$string_id); ?>', 'modal-share')"><i class="icon icon-share"></i></a>
+<a class="ribbon-tool" href="javascript:buildModal('<?php echo site_url('modals/share/'.$string_id); ?>', 'modal-share')"><i class="icon string-open-icon icon-share"></i></a>
 <span class="icon right-separator"></span>
 
-<a class="ribbon-tool" href="<?php echo site_url('browser'); ?>"><i class="icon icon-home"></i></a>
+<a class="ribbon-tool" href="<?php echo site_url('browser'); ?>"><i class="icon string-open-icon icon-home"></i></a>
 
 <div class="ribbon-tool-group dropdown-tool">
-	<a class="ribbon-tool"><i class="icon icon-globe">
+	<a class="ribbon-tool"><i class="icon string-open-icon icon-globe">
 		<span class="badge notification-badge">
 			<?php 
 				if ($unread_notes > 0) {
@@ -33,7 +33,7 @@
 
 <div class="ribbon-tool-group dropdown-tool">
 	<a class="ribbon-tool">
-		<i class="icon icon-gear"></i>
+		<i class="icon string-open-icon icon-gear"></i>
 	</a>
 	<ul class="dropdown dropdown-menu">
 		<li><a>Invite Friends</a></li>
