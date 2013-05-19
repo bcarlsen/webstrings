@@ -89,12 +89,36 @@
 		display: none;
 		position: absolute; 
 		top: 44px;
+    border-radius: 15px;
 		
-		background: @blue;
+		background: white;
+    color: @darkGray;
 		list-style: none;
+    border: 2px solid @lightGray;
+    opacity: 0.95;
 		
 		li {
 			white-space: nowrap;
+      padding: 3px 10px;
+
+      a {
+        color: @blue;
+        opacity: 0.5;
+      }
+
+      a:hover{
+        opacity: 1;
+      }
+
+      
+      &:first-child {
+        .border-radiuses(15px, 0, 0, 15px);
+      }
+      
+      &:last-child {
+        .border-radiuses(0, 15px, 15px, 0);
+      }
+
 		}
 	}
 	
@@ -102,7 +126,7 @@
 		display: block;
 		
 		li:hover {
-			background: @darkBlue;
+			background: @cream;
 		}
 	}
   }
