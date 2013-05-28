@@ -12,6 +12,7 @@
 		
 		<?php if(isset($extraCSS)) echo $extraCSS; ?>
 		
+		<script src="<?php echo base_url(); ?>public_html/js/jquery-1.7.2.min.js"></script>
 		<script src="http://js.pusher.com/1.12/pusher.min.js"></script>
 		
 	</head>

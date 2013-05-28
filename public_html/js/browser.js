@@ -222,6 +222,18 @@ $(document).on("click", ".ribbon-comments", function(event) {
 	$("i", this).toggleClass("active");
 });
 
+// Adds an on click handler to all 'dropdown-tool' <a> elements
+// This will toggle the 'active' class on the actual dropdown menu
+// and close any dropdown menus that are already open
+$(function() {
+	$('.dropdown-tool > a').click( function() {
+		var ribbon = $(this).closest('.ribbon'); // get parent 'ribbon'
+		var dropdown = $(this).next('.dropdown'); // get actual 'dropdown' menu
+		ribbon.find('.dropdown').not(dropdown).removeClass('active');  // remove 'active' class from all 'dropdown's except the clicked one
+		dropdown.toggleClass('active'); // toggle the 'active' class of the clicked 'dropdown'
+	})
+})
+
 /////////////////////////
 //    Hotkey Events    //
 /////////////////////////
