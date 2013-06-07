@@ -225,14 +225,21 @@ $(document).on("click", ".ribbon-comments", function(event) {
 // Adds an on click handler to all 'dropdown-tool' <a> elements
 // This will toggle the 'active' class on the actual dropdown menu
 // and close any dropdown menus that are already open
-$(function() {
+function register_DropDown_Toggle() {
+alert("register");
 	$('.dropdown-tool > a').click( function() {
 		var ribbon = $(this).closest('.ribbon'); // get parent 'ribbon'
 		var dropdown = $(this).next('.dropdown'); // get actual 'dropdown' menu
 		ribbon.find('.dropdown').not(dropdown).removeClass('active');  // remove 'active' class from all 'dropdown's except the clicked one
 		dropdown.toggleClass('active'); // toggle the 'active' class of the clicked 'dropdown'
 	})
-})
+}
+
+// Register the event handler to handle dorp down toggling
+// when a ribbon_type_change event is triggered
+$(register_DropDown_Toggle());
+$(document).bind('ribbon_type_change', register_DropDown_Toggle);
+
 
 /////////////////////////
 //    Hotkey Events    //
@@ -433,6 +440,7 @@ function switchRibbon(type, string_id){
 				var filter = $("#browserList").attr("data-filter");
 				setActiveFilter(filter);
 				container.animate( { "margin-left": "0px" });
+				container.trigger('ribbon_type_change'); // trigger event that content had changed
 			});
 		});
 	}else if(type == 'string') {
@@ -441,6 +449,7 @@ function switchRibbon(type, string_id){
 		container.animate( { "margin-left": "-400px" }, function() {
 			container.load(siteURL + "browser/ribbon_picker/view_pages", { 'string_id': string_id }, function() {
 				container.animate( { "margin-left": "0px" });
+				container.trigger('ribbon_type_change'); // trigger event that content had changed
 			});
 		});
 	}
