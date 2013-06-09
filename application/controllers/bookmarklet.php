@@ -25,7 +25,7 @@ class Bookmarklet extends CI_Controller {
 			
 			$string_id = $this->input->post('string_id');
 			$user_id = $user->id;
-			$url = $this->input->post('url');
+			$url = $this->_get_string_url(uri_string());
 			$title = $this->input->post('title');
 			
 			$this->String_model->add_page_to_string($string_id, $user_id, $url, $title);
@@ -35,7 +35,7 @@ class Bookmarklet extends CI_Controller {
 			echo '</script>';
 			
 		} else {
-			$url = $this->input->get('url');
+			$url = $this->_get_string_url(uri_string()); 
 			$data['url'] = $url;
 			
 			if(!is_logged_in()) {
@@ -51,7 +51,7 @@ class Bookmarklet extends CI_Controller {
 	
 	function login() {
 		
-		$url = $this->input->get('url');
+		$url = $this->_get_string_url(uri_string());
 		$data['url'] = $url;
 		
 		if($this->input->post('submit') != FALSE){
@@ -70,6 +70,11 @@ class Bookmarklet extends CI_Controller {
 		$data['view_file'] = 'login_view';
 		$this->load->view('std_template', $data);
 	}
+	
+	function _get_string_url($uri) {
+			$url_param = substr($uri, strpos($uri, '?url='));
+			return substr($url_param, strlen('?url='));
+	}	
 }
 
 ?>
