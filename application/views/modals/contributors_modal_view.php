@@ -3,7 +3,7 @@
 		
 		<div class="control-group single-line-form medium">
 			<input type="submit" value="Send Invite"/>
-			<span class="input-wrapper"><input id="ac-contributors" type="text" name="cont_name" placeholder="Invite a new contributor..." /></span>
+			<span class="input-wrapper"><input id="ac-contributors" type="text" name="cont_name" placeholder="Invite a new contributor by email..." /></span>
 			<input id="contributor-hidden" type="hidden" name="contributor_id" value="" />
 		</div>
 	
@@ -22,10 +22,10 @@
 
 <script type="text/javascript">
 	$(function() {
-		
+
 		$("#ac-contributors").autocomplete({
-			source: siteURL + "modals/contributor_search/<?php echo $string_id; ?>",
-			minLength: 2,
+			source: siteURL + "modals/contributor_search/?string_id=<?php echo $string_id; ?>",
+			minLength: 4,
 			focus: function( event, ui ) {
 				$( "#ac-contributors" ).val( ui.item.label );
 				$("#contributor-hidden").attr('value', '');

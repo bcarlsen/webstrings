@@ -226,7 +226,6 @@ $(document).on("click", ".ribbon-comments", function(event) {
 // This will toggle the 'active' class on the actual dropdown menu
 // and close any dropdown menus that are already open
 function register_DropDown_Toggle() {
-alert("register");
 	$('.dropdown-tool > a').click( function() {
 		var ribbon = $(this).closest('.ribbon'); // get parent 'ribbon'
 		var dropdown = $(this).next('.dropdown'); // get actual 'dropdown' menu

@@ -307,7 +307,13 @@ class String_model extends CI_Model{
 		$this->db->update('contributors', array("accepted" => 1));
 	}
 	
-	function contributor_search($string_id, $term) {
+	function contributor_search($search_query) {
+		$search_query = substr($search_query, 1);
+		$params = explode('&', $search_query);
+		$string_id = $params[0];
+		$string_id = substr($string_id, strpos($string_id, '=') + 1);
+		$term = $params[1];
+		$term = substr($term, strpos($term, '=') + 1);
 		
 		$custom_sql = 'users.id NOT IN (SELECT user_id FROM contributors AS id WHERE string_id = '.$string_id.')'.
 					  'AND (users.email LIKE "%'.$term.'%"  OR users.f_name LIKE "'.$term.'%" OR users.l_name LIKE "'.$term.

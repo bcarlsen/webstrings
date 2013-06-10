@@ -33,12 +33,12 @@
 						<input type="password" name="password" />
 					</span>
 				</div>
-				<div class="control-group">
+				<!--<div class="control-group">
 					<label for="password_conf">Confirm Password</label>
 					<span class="input-wrapper">
 						<input type="password" name="password_conf" />
 					</span>
-				</div>
+				</div>-->
 				<?php //echo validation_errors('<div class="control-group"><p>','</p></div>'); ?>
 				<div class="control-group">
 					<input type="submit" name="submit" value="Sign Up" />
