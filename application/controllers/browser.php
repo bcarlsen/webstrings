@@ -300,7 +300,7 @@ class Browser extends CI_Controller {
 		$this->load->model(array('Notifications_model', 'String_model'));
 		
 		$note = $this->Notifications_model->get_note_by_id($nid);
-		echo "note ".$note;
+
 		if($note) {
 			$update_data = array(
 				"response" => INVITE_ACCEPTED
