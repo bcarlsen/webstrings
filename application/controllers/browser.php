@@ -107,7 +107,9 @@ class Browser extends CI_Controller {
 		
 		$cur_user = $this->User_model->current_user();
 		$data['user'] = $cur_user;
-		$data['strings'] = $this->String_model->get_my_strings_for_user_id($cur_user->id);
+		$data['my_strings'] = $this->String_model->get_my_strings_for_user_id($cur_user->id);
+		$data['shared_strings'] = $this->String_model->get_shared_strings_for_user_id($cur_user->id);
+		$data['strings'] = array_merge($data['my_strings'], $data['shared_strings']);
 		$data['notes'] = $this->Notifications_model->get_notes_for_user($cur_user->id);
 		$data['unread_notes'] = $this->Notifications_model->get_num_unread_notes_for_user($cur_user->id);
 		
@@ -291,13 +293,14 @@ class Browser extends CI_Controller {
 	}
 	
 	function accept_string_invite_extern($nid, $sid) {
-		if(!is_logged_in())
-			redirect('browser');
+		if(!is_logged_in()) {
+			redirect('browser/');
+		}
 		
 		$this->load->model(array('Notifications_model', 'String_model'));
 		
 		$note = $this->Notifications_model->get_note_by_id($nid);
-		
+		echo "note ".$note;
 		if($note) {
 			$update_data = array(
 				"response" => INVITE_ACCEPTED
@@ -315,7 +318,7 @@ class Browser extends CI_Controller {
 			$this->Notifications_model->remove_notification($nid);
 		}
 		
-		redirect('browser/?s='.$sid.'&t=1');
+		redirect('browser/'); // ?s='.$sid.'&t=1');
 	}
 	
 	function reject_string_invite($nid) {

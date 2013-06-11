@@ -316,8 +316,11 @@ class String_model extends CI_Model{
 		$term = substr($term, strpos($term, '=') + 1);
 		
 		$custom_sql = 'users.id NOT IN (SELECT user_id FROM contributors AS id WHERE string_id = '.$string_id.')'.
+					'AND (users.email LIKE "%'.$term.'%")';
+					  /*
 					  'AND (users.email LIKE "%'.$term.'%"  OR users.f_name LIKE "'.$term.'%" OR users.l_name LIKE "'.$term.
 					  '%" OR users.email LIKE "%'.$term.'%")';
+					  */
 		$this->db->where($custom_sql);
 		$query = $this->db->get('users');
 		return $query->result();
