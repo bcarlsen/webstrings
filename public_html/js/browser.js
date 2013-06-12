@@ -239,6 +239,15 @@ function register_DropDown_Toggle() {
 $(register_DropDown_Toggle());
 $(document).bind('ribbon_type_change', register_DropDown_Toggle);
 
+// Set the href property of the "Add Page" button in the "Under Ribbon"
+// to be correct for the selected string
+function set_string_id_to_add_new_page(event, id) {
+	$('#add-page-link').attr("href", "javascript:buildModal('" + siteURL + "modals/add_page/" + id + "', 'modal-new-page')");  // "javascript:buildModal('<?php echo site_url('modals/add_page/'.$string_id); ?>', 'modal-new-page')";
+}
+
+// changes the Under Ribbon Add Page link href to reflect the new active string
+$(document).bind('active_string_change', set_string_id_to_add_new_page);
+
 
 /////////////////////////
 //    Hotkey Events    //
@@ -502,6 +511,9 @@ function openString(id, filter, cb){
 					
 					// change ribbon
 					switchRibbon('string', id);
+
+					// trigger 'active_string_change' event
+					$(this).trigger('active_string_change', id);
 				}
 			});
 		}
