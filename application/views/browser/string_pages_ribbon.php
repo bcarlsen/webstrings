@@ -3,7 +3,7 @@
 <a class="ribbon-tool" href="javascript:buildModal('<?php echo site_url('modals/share/'.$string_id); ?>', 'modal-share')"><i class="icon string-open-icon icon-share"></i></a>
 <span class="icon right-separator"></span>
 
-<a class="ribbon-tool" href="<?php echo site_url('browser'); ?>"><i class="icon string-open-icon icon-home"></i></a>
+<a class="ribbon-tool" href="<?php echo site_url('browser/home_page'); ?>"><i class="icon string-open-icon icon-home"></i></a>
 
 <div class="ribbon-tool-group dropdown-tool">
 	<a class="ribbon-tool"><i class="icon string-open-icon icon-globe">

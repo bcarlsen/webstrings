@@ -1,7 +1,7 @@
 <a class="ribbon-tool right-separator" href="javascript:buildModal('<?php echo site_url('modals/new_string'); ?>', 'modal-new-string')"><i class="icon all-strings-icon icon-new-string"></i></a>
 <span class="icon right-separator"></span>
 
-<a class="ribbon-tool" href="<?php echo site_url('browser'); ?>"><i class="icon all-strings-icon icon-home"></i></a>
+<a class="ribbon-tool" href="<?php echo site_url('browser/home_page'); ?>"><i class="icon all-strings-icon icon-home"></i></a>
 
 <div class="ribbon-tool-group dropdown-tool">
 	<a class="ribbon-tool"><i class="icon all-strings-icon icon-globe">
