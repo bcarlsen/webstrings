@@ -86,7 +86,7 @@
 
 		<a target="iframe" href="" class="view-all-strings-link" id="add-page-link">+  Add Page</a>
 		<div class="trash-icon-wrapper view-all-strings-link">
-			<div id="page-trash-icon" class=""></div>
+			<div id="" class="string-delete"><i class="icon icon-trash"></i></div>
 		</div>
 	</div>	
 

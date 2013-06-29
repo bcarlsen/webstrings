@@ -72,6 +72,22 @@ $(document).on("click", ".string-info", function() {
 	}
 });
 
+// deletes a string
+$(document).on("click", ".string-delete", function(e) {
+	e.preventDefault();
+	var stringID = $('#selectedString').attr("data-id");
+	
+	$.ajax({
+		url: siteURL + 'browser/delete_string/' + stringID,
+		success: function(data) {
+			refreshStrings("my_strings");
+        	closeString();
+        },
+        error: function(data) {
+        	alert(data);
+        }
+	});	
+});
 /////////////////////////
 //     Page Events     //
 /////////////////////////
@@ -436,6 +452,11 @@ function setActiveFilter(filter){
 		$(".icon-my-strings").addClass("active");
 	} else if(filter == "shared_strings"){
 		$(".icon-shared-strings").addClass("active");
+	}
+	else {
+	$(".icon-my-strings").addClass("active");
+	$(".icon-shared-strings").addClass("active");
+		//$(".icon-all-atrings").addClass("active");  // TODO
 	}
 }
 

@@ -206,6 +206,17 @@ class Browser extends CI_Controller {
 		return;
 	}
 	
+	function delete_string($sid)  {
+		if(!is_logged_in())
+			redirect('browser');
+		
+		$this->load->model('String_model');
+		
+		$this->String_model->delete_string($sid);
+		
+		return;
+	}
+	
 	function mark_page_read($pid) {
 		if(!is_logged_in())
 			redirect('browser');
