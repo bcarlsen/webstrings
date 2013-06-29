@@ -82,6 +82,7 @@ $(document).on("click", ".string-delete", function(e) {
 		success: function(data) {
 			refreshStrings("my_strings");
         	closeString();
+			switchRibbon("main");
         },
         error: function(data) {
         	alert(data);
