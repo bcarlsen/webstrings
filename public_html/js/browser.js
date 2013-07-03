@@ -469,7 +469,7 @@ function switchRibbon(type, string_id){
 			container.load(siteURL + 'browser/ribbon_picker/view_strings',  function() {
 				var filter = $("#browserList").attr("data-filter");
 				setActiveFilter(filter);
-				container.animate( { "margin-left": "0px" });
+				container.animate( { "margin-left": "0px" }, 0);
 				container.trigger('ribbon_type_change'); // trigger event that content had changed
 			});
 		});
@@ -478,7 +478,7 @@ function switchRibbon(type, string_id){
 		var container = $(".ribbon div");
 		container.animate( { "margin-left": "-400px" }, function() {
 			container.load(siteURL + "browser/ribbon_picker/view_pages", { 'string_id': string_id }, function() {
-				container.animate( { "margin-left": "0px" });
+				container.animate( { "margin-left": "0px" }, 0);
 				container.trigger('ribbon_type_change'); // trigger event that content had changed
 			});
 		});

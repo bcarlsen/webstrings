@@ -1,9 +1,9 @@
 <div class="sign_up_page">
 	<div class="top_nav">
 		<ul>
-			<li><a href="www.google.com">Press</a></li>
-			<li><a href="www.google.com">Contact</a></li>
-			<li><a href="www.google.com">About Us</a></li>
+			<li><a href="<?php echo site_url('browser/press') ?>">Press</a></li>
+			<li><a href="<?php echo site_url('browser/contact') ?>">Contact</a></li>
+			<li><a href="<?php echo site_url('browser/about_us') ?>">About Us</a></li>
 		</ul>
 
 	</div>	

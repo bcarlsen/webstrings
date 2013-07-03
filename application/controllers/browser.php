@@ -140,6 +140,48 @@ class Browser extends CI_Controller {
 		$this->load->view('std_template', $data);
 	}
 	
+	function about_us() {
+		if (is_logged_in()) {
+			$this->load->model(array('User_model'));
+			
+			$cur_user = $this->User_model->current_user();
+			$data['user'] = $cur_user;
+		}
+		
+		$data['view_file'] = 'about_us_view';
+		$data['browser_ribbon_file'] = 'strings_ribbon';
+		$data['browser_view_file'] = 'string_list_view';
+		$this->load->view('std_template', $data);
+	}
+	
+	function contact() {
+		if (is_logged_in()) {
+			$this->load->model(array('User_model'));
+		
+			$cur_user = $this->User_model->current_user();
+			$data['user'] = $cur_user;
+		}
+		
+		$data['view_file'] = 'contact_view';
+		$data['browser_ribbon_file'] = 'strings_ribbon';
+		$data['browser_view_file'] = 'string_list_view';
+		$this->load->view('std_template', $data);
+	}
+	
+	function press() {
+		if (is_logged_in()) {
+			$this->load->model(array('User_model'));
+		
+			$cur_user = $this->User_model->current_user();
+			$data['user'] = $cur_user;
+		}
+		
+		$data['view_file'] = 'press_view';
+		$data['browser_ribbon_file'] = 'strings_ribbon';
+		$data['browser_view_file'] = 'string_list_view';
+		$this->load->view('std_template', $data);
+	}
+	
 	function my_strings() {
 		if(!is_logged_in())
 			redirect('browser');

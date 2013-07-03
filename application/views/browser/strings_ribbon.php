@@ -35,13 +35,13 @@
 		<i class="icon all-strings-icon icon-gear"></i>
 	</a>
 	<ul class="dropdown dropdown-menu">
-		<li><a>Invite Friends</a></li>
-		<hr />
+		<!--<li><a>Invite Friends</a></li>
+		<hr />-->
 		<li><a href="javascript:window.showModalDialog('<?php echo site_url('bookmarklet/index').'/'; ?>?url=' + location.href,'','dialogHeight:250px;dialogWidth:700px;center:yes;resizable:no;scroll:yes;')" onclick="alert('Drag to the bookmarks bar.'); return false;" style="cursor:move;">String It!</a></li>
 		<hr />
 		<li><a href="javascript:buildModal('<?php echo site_url('modals/settings'); ?>', 'modal-settings')">Settings</a></li>
 		<hr />
-		<li><a>About Us</a></li>
+		<li><a href="<?php echo site_url("browser/about_us"); ?>">About Us</a></li>
 		<hr />
 		<li><a href="<?php echo site_url('modals/log_out'); ?>/browser/index">Logout</a></li>
 	</ul>
