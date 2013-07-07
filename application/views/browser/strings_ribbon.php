@@ -41,7 +41,7 @@
 		<hr />
 		<li><a href="javascript:buildModal('<?php echo site_url('modals/settings'); ?>', 'modal-settings')">Settings</a></li>
 		<hr />
-		<li><a href="<?php echo site_url("browser/about_us"); ?>">About Us</a></li>
+		<li><a href="<?php echo site_url('browser/about_us'); ?>">About Us</a></li>
 		<hr />
 		<li><a href="<?php echo site_url('modals/log_out'); ?>/browser/index">Logout</a></li>
 	</ul>
