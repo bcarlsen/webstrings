@@ -236,7 +236,12 @@ class Modals extends CI_Controller {
 		$formatted_results = array();
 		
 		foreach($results as $user){
-			$userArray['label'] = $user->f_name.' '.$user->l_name;
+			$user_email = $user->email;
+			if (strlen($user_email) > 10) { // user email is to long
+				$user_email = substr($user_email, 0, 7). '...';
+			}
+			
+			$userArray['label'] = $user->f_name. ' '. $user->l_name. ' - '. $user_email;
 			$userArray['value'] = $user->id;
 			$formatted_results[] = $userArray;
 		}
