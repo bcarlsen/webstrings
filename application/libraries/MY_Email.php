@@ -67,4 +67,25 @@ class MY_Email extends CI_Email {
 			//echo "it failed!";
 		}
 	}
+	
+	public function send_member_invite($receiver_email, $nid, $sender_id, $string_id) {
+		$CI =& get_instance(); 
+		$CI->load->model(array('String_model', 'User_model'));
+		$CI->load->helper('url');
+		
+		//$receiver = $CI->User_model->get_user_by_id($temp_receiver_id);
+		$data['sender'] = $CI->User_model->get_user_by_id($sender_id);
+		$data['string'] = $CI->String_model->get_string_by_id($string_id);
+		$data['nid'] = $nid;
+		
+		$subject = "WebStrings: Collabrative Research - ". $data['sender']->f_name . ' '. $data['sender']->l_name. " has invited you to contribute";
+		$data['view_file'] = 'member_invite';
+		$body = $CI->load->view('email/template', $data, TRUE);
+		
+		if($this->ws_send_email($receiver_email, $subject, $body)){
+			//echo "it worked!";
+		} else {
+			//echo "it failed!";
+		}
+	}
 }

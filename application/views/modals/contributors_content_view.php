@@ -3,7 +3,7 @@
 			<?php foreach($contributors as $contributor): ?>
 				<div class="contributor-container">
 					<div class="pic-cropper">
-						<img src="<?php if($contributor->fb) echo $contributor->pic_url; else echo base_url()."public_html/images/default_avatar.png"; ?>" />
+						<!-- <img src="<?php if($contributor->fb) echo $contributor->pic_url; else echo base_url()."public_html/images/default_avatar.png"; ?>" /> -->
 						<?php if(!$contributor->accepted): ?><div class="invited"><span>Invited</span></div><?php endif; ?>
 					</div>
 					<span class="contributor-details">

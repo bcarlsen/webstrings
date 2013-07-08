@@ -244,6 +244,35 @@ class Modals extends CI_Controller {
 		echo json_encode($formatted_results);
 	}
 	
+	// returns whether an email already belongs to a user
+	public function is_member_by_email() {
+		$this->load->model('User_model');
+		$email = $this->input->post('email');
+		$result = $this->User_model->get_user_by_email($email); // query for user by email
+
+		if ($result->id > -1) { // user found
+			echo json_encode(array('result'=>'true', 'id'=>$result->id));
+		}
+		else { // user not found
+			echo json_encode(array('result'=>'false'));
+		}
+		
+		return;
+	}
+	
+	public function get_string_contributors_id($string_id) {
+		$this->load->model('String_model');
+
+		$results = $this->String_model->get_contributors_for_string($string_id);
+		
+		$formatted_results = array();	
+		foreach($results as $user){
+			$formatted_results[] = $user->id;
+		}
+		
+		echo json_encode($formatted_results);
+	}
+	
 	public function contributor_invite($string_id) {
 		$this->load->model(array('User_model', 'String_model', 'Notifications_model'));
 		
@@ -269,6 +298,16 @@ class Modals extends CI_Controller {
 		} else {
 			redirect('browser');
 		}
+	}
+	
+	public function member_invite() {
+		// setup temporary account
+		
+		
+		// send email
+		$receiver_email = $this->input->post('email');
+		$this->load->library('email');
+		$this->email->send_contributor_invite($receiver_email, $nid, $this->User_model->current_user()->id, $string_id);
 	}
 	
 	public function contributor_add($string_id) {

@@ -77,14 +77,75 @@ function refreshModal(path, data) {
 	});
 }
 
-function addContributor() {
-	
-	if ($("#contributor-hidden").attr('value') == '') {
+function addContributor() {	
+	var form = $("#modalForm");
+		
+	if ($("#contributor-hidden").attr('value') == '') { // No user ID selected for invite
+		console.log("No valid ID selected");
+		
+		var email = $('#ac-contributors').val(); // get current email address 
+		console.log("Current email:" + email);
+		
+		if (isValidEmailAddress(email)) { // valid email
+			console.log("Valid email");
+			// search users and retrieve id
+			$.ajax( {
+				type: "POST",
+				url: siteURL + "modals/is_member_by_email",
+				data: {"email": email},
+				dataType: "json",
+				success: function(response) {
+					var isMem = response.result;
+					if (isMem === "true") { // // email found for member
+						var id = response.id; 
+						var string_id = form.attr('action').split('/')
+						string_id = string_id[string_id.length - 1];  console.log(string_id); 
+						
+						// is member is already part of the string
+						$.ajax( {
+							type: "GET",
+							url: siteURL + "modals/get_string_contributors_id/" + string_id,
+							dataType: "json",
+							success: function(response) {
+								if (response.indexOf(id) < 0) { // member not part of string
+									$('#contributor-hidden').val(id);
+									send_contributor_invite();
+								}
+								else {// member already belongs to string
+									console.log("member already belongs to string")
+									return false;
+								}
+							},
+							error : function(xhr, status, err) {
+								console.log(err + "; " + status + " (add_contributor)");
+							}
+						} );
+					} // -- end is member --
+					else { // user email not found, invite them via email
+						console.log("not a member");
+						return false
+					}
+				},
+				error: function(xhr, status, err){
+					console.log(err + '; ' + status + " (add_contributor)");
+					return false;
+				}
+			} );
+		}
+		else { // invalid email
+			console.log("invalid email");
+		}		
 		
 		return false;
-	} else {
-		var form = $("#modalForm");
-		$(".contributors-box").html("<div class=\"loader-gif\"><img src=\"" + baseURL + "public_html/images/loader.gif\" /></div>");
+	} else { // valid user ID selected
+		console.log("Valid ID selected");
+		//$(".contributors-box").html("<div class=\"loader-gif\"><img src=\"" + baseURL + "public_html/images/loader.gif\" /></div>");
+		send_contributor_invite();
+		return false;
+	}
+	
+	//
+	function send_contributor_invite() {
 		$.ajax( {
 			type: "POST",
 			url: form.attr('action'),
@@ -96,8 +157,8 @@ function addContributor() {
 				$("#contributor-hidden").val('');
 			}
 		});
-		return false;
 	}
+	
 }
 
 function switchToCropper(path, data){
@@ -111,3 +172,4 @@ $(document).on("change", ".settings-change-photo-container input[type=file]", fu
 		var $form = $(this).closest("form");
 		$form.submit();
 	});
+	

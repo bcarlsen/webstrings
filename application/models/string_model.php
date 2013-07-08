@@ -308,6 +308,7 @@ class String_model extends CI_Model{
 	}
 	
 	function contributor_search($search_query) {
+		$search_query  = urldecode($search_query); // decode from url
 		$search_query = substr($search_query, 1);
 		$params = explode('&', $search_query);
 		$string_id = $params[0];
@@ -316,11 +317,12 @@ class String_model extends CI_Model{
 		$term = substr($term, strpos($term, '=') + 1);
 		
 		$custom_sql = 'users.id NOT IN (SELECT user_id FROM contributors AS id WHERE string_id = '.$string_id.')'.
-					'AND (users.email LIKE "%'.$term.'%")';
+					'AND (users.email LIKE "'. $this->db->escape_like_str($term). '%")'; // escape search term
 					  /*
 					  'AND (users.email LIKE "%'.$term.'%"  OR users.f_name LIKE "'.$term.'%" OR users.l_name LIKE "'.$term.
 					  '%" OR users.email LIKE "%'.$term.'%")';
 					  */
+		
 		$this->db->where($custom_sql);
 		$query = $this->db->get('users');
 		return $query->result();
