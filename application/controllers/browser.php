@@ -29,7 +29,7 @@ class Browser extends CI_Controller {
 	}
 	
 	function not_logged_in_browser(){
-		
+	
 		$data['params'] = $_SERVER['QUERY_STRING'] ? '?'.$_SERVER['QUERY_STRING'] : '';
 		
 		$data['view_file'] = 'not_logged_in/frame';
@@ -37,6 +37,7 @@ class Browser extends CI_Controller {
 		$data['browser_view_file'] = 'string_list_view';
 		$this->load->view('std_template', $data);
 	}
+	
 	function log_in(){
 		
 		if($this->input->post('submit') != FALSE){
@@ -50,18 +51,21 @@ class Browser extends CI_Controller {
 			if ($this->form_validation->run() != FALSE) { 
 				$user = $this->User_model->get_user_by_email($email);
 				log_in($user->id);
+				redirect('browser');
 			}
 			else {
-				$this->not_logged_in_browser();
+				//$this->not_logged_in_browser();  // loads entire home page
+				$data['view_file'] = 'not_logged_in/login_failure';  // loads login page
+				$this->load->view('std_template', $data);
 			}
 			
 			//$params = $_SERVER['QUERY_STRING'] ? '?'.$_SERVER['QUERY_STRING'] : '';
 			
-			redirect('browser');//.$params);
+			//redirect('browser');//.$params);
 			
 		} else {
 			//$data['params'] = $_SERVER['QUERY_STRING'] ? '?'.$_SERVER['QUERY_STRING'] : '';
-			
+			redirect('browser'); // if not a POST request redirect to main browser
 		}
 	}	
 	
