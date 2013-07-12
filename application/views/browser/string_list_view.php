@@ -24,10 +24,10 @@
 <?php endforeach; ?>
 
 
-<div class="pages">
+<!--<div class="pages">
 	<ul>
 		<li></li>
 		<li></li>
 		<li></li>
 	</ul>
-</div>
+</div>-->

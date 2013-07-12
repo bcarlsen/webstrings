@@ -102,6 +102,6 @@
 
 <div id="content">
 	<div class="nav-arrow nav-arrow-left"><a href="javascript:prevPage()"><i class="icon icon-arrow-left"></i></a></div>
-	<iframe name="iframe" src="">Your browser does not support iframes.</iframe>
+	<iframe name="iframe" id="browser-frame" src="">Your browser does not support iframes.</iframe>
 	<div class="nav-arrow nav-arrow-right"><a href="javascript:nextPage()"><i class="icon icon-arrow-right"></i></a></div>
 </div>

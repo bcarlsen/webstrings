@@ -435,6 +435,16 @@ class Browser extends CI_Controller {
 		}
 	}
 	
+	// Marks the page as being either allowed in an iframe (true), or
+	// not allowed in an iframe (false) due to XFrame Option header
+	function mark_page_iframe_allowed() {
+		$this->load->model('String_model');
+		
+		$page_id = $this->input->post('page_id');
+		$allowed = $this->input->post('allowed');
+		$this->String_model->mark_page_iframe_allowed($page_id, $allowed);
+	}
+	
 }
 
 ?>

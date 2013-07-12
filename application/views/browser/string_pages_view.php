@@ -2,8 +2,9 @@
 	
 	<div class="page-container" data-id="<?php echo $page->id; ?>">
 		<?php if($page->unread) echo '<div class="page-unread-marker"></div>'; ?>
+		<?php if(!$page->iframe_allowed) echo '<div class="opens-in-new-window"></div>'; ?>
 		<div class="page-info">
-			<a target="iframe" href="<?php echo $page->url; ?>">
+			<a target="<?php if($page->iframe_allowed) echo 'iframe'; else echo '_blank'; ?>" href="<?php echo $page->url; ?>" class="page-link">
 				<h4><?php echo $page->title; ?></h4>
 				<div class="page-delete">
 					<i class="icon icon-trash"></i>

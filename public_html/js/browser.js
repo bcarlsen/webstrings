@@ -94,9 +94,8 @@ $(document).on("click", ".string-delete", function(e) {
 /////////////////////////
 
 // a page is selected
-$(document).on("click", ".page-info:not(.page-delete)", function(e) {
-	if($(event.target).parents(".page-delete").length < 1) {
-		
+$(document).on("click", ".page-info:not(.page-delete)", function(event) {
+	if($(event.target).parents(".page-delete").length < 1) {		
 		var pid = $(this).parents(".page-container").first().attr("data-id");
 		
 		$(".page-info").removeClass("active");
@@ -267,6 +266,93 @@ $(document).bind('active_string_change', set_string_id_to_add_new_page);
 
 
 /////////////////////////
+//    iFrame Events    //
+/////////////////////////
+
+// change iframes src attribute to match page contents
+$(document).on('click', '.page-info',function(e) {
+	var url = $(this).children('a').attr('href');
+	$('#browser-frame').attr('src', url);
+	$(this).trigger("browser-location-change", [url]); // trigger event when browsers iframe changes its src
+});
+
+// register XFrames-Options check for iFrame compatibility
+$(document).bind("browser-location-change", check_xframe_options);
+
+// TODO
+// Check the if the iframe had an XFrame-Options error preventing
+// it to be loaded in the iframe
+function check_xframe_options(event, url) {
+console.log(url);
+	$.ajax({
+		type: 'HEAD',
+		url: url,
+		success: function(response) {
+			//console.log('success');
+		},
+		error: function(xhr, status, err) {
+			//console.log(status + '  ' + err);
+		}
+	});
+}
+
+// register Anchor change to bypass XFrames-Options errors
+// for speciific sites
+// fired when page-container nodes are added
+$(document).on("DOMNodeInserted", ".page-container", modify_href_for_google);
+
+// modifies request url to allow iframe embedding or open in new window
+// Google, YouTube
+function modify_href_for_google(event) {
+	// get url for page
+	var container = $(event.target);
+	var link = container.find(".page-link");
+	var url = link.attr('href'); 
+	var pid = container.attr('data-id');
+	
+	// get url domain
+	var a = document.createElement('a'); // create an anchor for DOM parsing
+	a.href = url; // set href prop to url
+	var domain = a.hostname; // retrive hostname of requested url
+	
+	// test if urrl needs to be modified
+	if (/google/i.test(domain)) { // domain is a google domain
+		link.attr('target', '_blank'); // set page to open in new window
+		mark_page_iframe_not_allowed(pid)
+	}
+	else if (/youtube/i.test(domain)) { // domain is a youtube domain
+		if (/watch?v=/i.test(url)) {  // link is to an embeddable video
+			link.attr('href', url.replace("watch?v=", "embed/")); // new url for embed 
+		}
+		else {
+			link.attr('target', "_blank");  // set page to open in new window
+		}
+		
+		mark_page_iframe_not_allowed(pid)
+	}
+
+	// marks the string as unallowed in iFrame's
+	function mark_page_iframe_not_allowed(pid) {
+		$.ajax({
+			type: "POST",
+			url: siteURL + 'browser/mark_page_iframe_allowed',
+			data: {
+				page_id: pid,
+				allowed: false
+			},
+			success: function(response) {
+				console.log(pid);
+			},
+			error: function(xhr, status, err) {
+				console.log(status + ' ' + error);
+			}
+		});
+	}
+}
+
+
+
+/////////////////////////
 //    Hotkey Events    //
 /////////////////////////
 
@@ -430,7 +516,7 @@ function openPage(pid, cb){
 			page.attr("id", "selectedPage");
 			$(".page-info").removeClass("active");
 			$(".page-info", page).addClass('active');
-			
+
 			loadPageInViewer(page);
 			
 			if(typeof(cb) != 'undefined')

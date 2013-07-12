@@ -149,7 +149,7 @@ class String_model extends CI_Model{
 	}
 	
 	function get_pages_for_string($string_id, $user_id) {
-		$this->db->select('string_pages.id, string_pages.url, string_pages.title, pages_read.unread, pages_read.user_id');
+		$this->db->select('string_pages.id, string_pages.url, string_pages.title, string_pages.iframe_allowed, pages_read.unread, pages_read.user_id');
 		$this->db->from('string_pages');
 		$this->db->join('pages_read', 'string_pages.id = pages_read.page_id');
 		$this->db->where('string_pages.string_id', $string_id);
@@ -177,13 +177,14 @@ class String_model extends CI_Model{
 		return $this->db->count_all_results();
 	}
 	
-	function add_page_to_string($string_id, $user_id, $url, $title) {
+	function add_page_to_string($string_id, $user_id, $url, $title, $iframe_allowed = true) {
 		
 		$page_data = array(
 			'string_id' => $string_id,
 			'user_id' => $user_id,
 			'url' => $url,
 			'title' => $title,
+			'iframe_allowed' => $iframe_allowed,
 			'date_added' => strftime("%Y-%m-%d %H:%M:%S", time())
 		);
 		
@@ -215,6 +216,14 @@ class String_model extends CI_Model{
 		
 		$this->db->where('page_id', $page_id);
 		$this->db->delete('pages_read');
+	}
+	
+	// Marks the page as being either allowed in an iframe (true), or
+	// not allowed in an iframe (false) due to XFrame Option header
+	function mark_page_iframe_allowed($page_id, $allowed = true) {
+		$this->db->set('iframe_allowed', $allowed);
+		$this->db->where('id', $page_id);
+		$this->db->update('string_pages');
 	}
 	
 	////////////////////////////
