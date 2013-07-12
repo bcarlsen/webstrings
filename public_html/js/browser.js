@@ -318,7 +318,9 @@ function modify_href_for_google(event) {
 	// test if urrl needs to be modified
 	if (/google/i.test(domain)) { // domain is a google domain
 		link.attr('target', '_blank'); // set page to open in new window
-		mark_page_iframe_not_allowed(pid)
+		
+		mark_page_iframe_not_allowed(pid);
+		mark_page_opens_in_new_window(container)
 	}
 	else if (/youtube/i.test(domain)) { // domain is a youtube domain
 		if (/watch?v=/i.test(url)) {  // link is to an embeddable video
@@ -328,7 +330,8 @@ function modify_href_for_google(event) {
 			link.attr('target', "_blank");  // set page to open in new window
 		}
 		
-		mark_page_iframe_not_allowed(pid)
+		mark_page_iframe_not_allowed(pid);
+		mark_page_opens_in_new_window(container)
 	}
 
 	// marks the string as unallowed in iFrame's
@@ -341,12 +344,26 @@ function modify_href_for_google(event) {
 				allowed: false
 			},
 			success: function(response) {
-				console.log(pid);
+				//console.log(pid);
 			},
 			error: function(xhr, status, err) {
-				console.log(status + ' ' + error);
+				//console.log(status + ' ' + error);
 			}
 		});
+	}
+	
+	// marks page as opening in new window
+	function mark_page_opens_in_new_window(container) {
+		if (container.has('.opens-in-new-window').length === 0) {
+			var marker = $('<div class="opens-in-new-window"></div>');
+			
+			if (container.has('.page-unread-marker').length > 0) {
+				marker.insertAfter(container.children('.page-unread-marker'));
+			}
+			else {
+				container.prepend(marker);
+			}
+		}
 	}
 }
 
