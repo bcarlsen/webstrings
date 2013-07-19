@@ -182,7 +182,8 @@ $(document).on("mouseenter", ".note-container", function(event) {
 });
 
 $(document).on("mouseleave", ".note-container", function(event) {
-	$(".note-actions-container", this).fadeOut("fast");
+	//$(".note-actions-container", this).fadeOut("fast");
+	$(".note-actions-container", this).css("display", "none");
 });
 
 $(document).on("click", ".message-text a", function(e) {

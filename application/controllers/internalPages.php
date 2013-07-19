@@ -64,7 +64,15 @@ class InternalPages extends CI_Controller {
 		}
 	}
 	
+	// Sends an email with a unique URL to reset their password
+	public function send_password_reset_email($uid) {
 	
+	}
+	
+	// Replaces the users old password with a new one
+	public function resest_password($uid, $new_password) {
+	
+	}
 }
 
 ?>

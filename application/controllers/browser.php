@@ -186,6 +186,23 @@ class Browser extends CI_Controller {
 		$this->load->view('std_template', $data);
 	}
 	
+	function notifications() {
+		if (!is_logged_in()) 
+			redirect('browser');
+		
+		$this->load->model(array('User_model', 'Notifications_model'));
+		
+		$cur_user = $this->User_model->current_user();
+		$data['user'] = $cur_user;
+		$data['notifications'] = $this->Notifications_model->get_notes_for_user($cur_user->id);
+				
+		$data['view_file'] = 'notifications_view';
+		$data['location'] = 'notifications_view';
+		$data['browser_ribbon_file'] = 'strings_ribbon';
+		$data['browser_view_file'] = 'string_list_view';
+		$this->load->view('std_template', $data);
+	}
+	
 	function my_strings() {
 		if(!is_logged_in())
 			redirect('browser');
@@ -193,6 +210,7 @@ class Browser extends CI_Controller {
 		$this->load->model(array('User_model', 'String_model'));
 		
 		$cur_user = $this->User_model->current_user();
+
 		$data['user'] = $cur_user;
 		$data['strings'] = $this->String_model->get_my_strings_for_user_id($cur_user->id);
 		$data['my_strings'] = true;

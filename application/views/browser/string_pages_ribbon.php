@@ -17,13 +17,13 @@
 	</i></a>
 	<ul class="dropdown notifications">
 		<?php
-			//foreach ($notes as $note) {
-				//echo "<li class=\"notification\">". $note->body. "</li>";
-			//}
+			foreach ($notes as $note) {
+				echo "<li class=\"notification\">". $note->body. "</li>";
+			}
 		?>
 		<li>
 			<?php if(count($notes) > 0): ?>
-				<a>View all</a>
+				<a href="<?php echo site_url('browser/notifications') ?>">View all</a>
 			<?php else: ?>
 				<p>No notifications</p>
 			<?php endif; ?>

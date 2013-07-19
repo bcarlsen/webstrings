@@ -1,5 +1,4 @@
 <div class="note-container" data-id="<?php echo $note->id; ?>">
-	<div class="pic-cropper small"><img src="<?php if($sender->fb) echo $sender->pic_url; else echo base_url()."public_html/images/default_avatar.png"; ?>" /></div>
 	<div class="note-message">
 		<div class="message-text"><?php echo $sender->f_name; ?> invited you to <?php if($sender->gender) echo 'his'; else echo 'her'; ?> string "<?php echo $string->title; ?>"</div>
 		<div class="note-actions-container">
