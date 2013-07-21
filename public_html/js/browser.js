@@ -164,7 +164,7 @@ $(document).on("click", ".toolbar-icon", function(event) {
 	cur_menu.parent().siblings().find(".notes-scroller").hide();
 	cur_menu.toggle();
 	cur_menu.siblings(".notes-scroller").toggle();
-	reinitialiseNoteScroller();
+	//reinitialiseNoteScroller();
 	$(this).find(".note-badge").first().fadeOut("slow", function() {$(this).text("0");});
 });
 
@@ -178,7 +178,7 @@ $(document).on("click", ".toolbar-menu", function(e) {
 
 $(document).on("mouseenter", ".note-container", function(event) {
 	//if($(this).parent().hasClass("unread")) $(this).parent().removeClass("unread");
-	$(".note-actions-container", this).fadeIn("fast").css("display", "table");
+	$(".note-actions-container", this).fadeIn("fast").css("display", "block");
 });
 
 $(document).on("mouseleave", ".note-container", function(event) {
@@ -239,27 +239,51 @@ $(document).on("click", ".ribbon-comments", function(event) {
 	$("i", this).toggleClass("active");
 });
 
+// Register the event handler to handle dorp down toggling
+// when a ribbon_type_change event is triggered
 // Adds an on click handler to all 'dropdown-tool' <a> elements
 // This will toggle the 'active' class on the actual dropdown menu
 // and close any dropdown menus that are already open
-function register_DropDown_Toggle() {
-	$('.dropdown-tool > a').click( function() {
-		var ribbon = $(this).closest('.ribbon'); // get parent 'ribbon'
-		var dropdown = $(this).next('.dropdown'); // get actual 'dropdown' menu
-		ribbon.find('.dropdown').not(dropdown).removeClass('active');  // remove 'active' class from all 'dropdown's except the clicked one
-		dropdown.toggleClass('active'); // toggle the 'active' class of the clicked 'dropdown'
-	})
-}
 
-// Register the event handler to handle dorp down toggling
-// when a ribbon_type_change event is triggered
-$(register_DropDown_Toggle());
-$(document).bind('ribbon_type_change', register_DropDown_Toggle);
+$(document).on('click', '.dropdown-tool .tool .icon', function(e) { 
+	var toolbar = $(this).closest('.toolbar'); // get parent 'toolbar'
+	var dd_tool = $(this).closest('.tool'); // get parent 'dropdown-tool' menu
+	var dropdown = $(dd_tool).next('.dropdown'); // get actual 'dropdown' menu
+	toolbar.find('.dropdown').not(dropdown).removeClass('active');  // remove 'active' class from all 'dropdown's except the clicked one
+	dropdown.toggleClass('active'); // toggle the 'active' class of the clicked 'dropdown'
+	
+	e.stopPropagation();
+} );
+
+// Registers an on click handler to the document to check if 
+// the user clicked on a drop down menu
+// if not then closes all drop down menus
+
+$(document).on('click', function(e) {
+	var target = $(e.target); // click target
+	var dropdownTools = $(".dropdown-tool"); // gets all dropdown menus
+	var dropdowns = dropdownTools.find('.dropdown');
+	var ddElements = dropdownTools.find("*"); // all dropdown menu elements
+	if (target.index(ddElements == -1)) { // target not in dropdown menu
+		dropdowns.removeClass('active');
+	}
+} );
+
+$(document).on('ribbon_type_change', function(e, ribbonType) {
+	if (ribbonType === "main-ribbon")
+		var width = "55px";
+	else if (ribbonType === "string-ribbon") 
+		width = "50px";
+		
+	var tbItems = $(".toolbar-item"); // get toolbar icon containers
+	tbItems.css("width", width); // set width of items
+} ); 
 
 // Set the href property of the "Add Page" button in the "Under Ribbon"
 // to be correct for the selected string
 function set_string_id_to_add_new_page(event, id) {
-	$('#add-page-link').attr("href", "javascript:buildModal('" + siteURL + "modals/add_page/" + id + "', 'modal-new-page')");  // "javascript:buildModal('<?php echo site_url('modals/add_page/'.$string_id); ?>', 'modal-new-page')";
+	$('#add-page-link').attr("href", "javascript:buildModal('" + siteURL + "modals/add_page/" + id + "', 'modal-new-page')");  
+	// "javascript:buildModal('<?php echo site_url('modals/add_page/'.$string_id); ?>', 'modal-new-page')";
 }
 
 // changes the Under Ribbon Add Page link href to reflect the new active string
@@ -284,7 +308,7 @@ $(document).bind("browser-location-change", check_xframe_options);
 // Check the if the iframe had an XFrame-Options error preventing
 // it to be loaded in the iframe
 function check_xframe_options(event, url) {
-console.log(url);
+//console.log(url);
 	$.ajax({
 		type: 'HEAD',
 		url: url,
@@ -479,7 +503,7 @@ function reinitialiseNoteScroller(){
 	
 	if(notesScroll == null) {
 		var menu = $(".toolbar-notifications");
-		menu.jScrollPane();
+		//menu.jScrollPane();
 		notesScroll = menu.data('jsp');
 	} else {
 		notesScroll.reinitialise();
@@ -568,24 +592,46 @@ function setActiveFilter(filter){
 function switchRibbon(type, string_id){
 	if(type == 'main'){
 		$(".view-all-strings-link").hide();
+		
+		var ribbon = $(".ribbon");
+		ribbon.removeClass("string-ribbon");
+		ribbon.addClass("main-ribbon");	
+		
 		var container = $(".ribbon div");
-		container.animate( { "margin-left": "-400px" }, function() {
+		/*container.animate( { "margin-left": "-400px" }, function() {
 			container.load(siteURL + 'browser/ribbon_picker/view_strings',  function() {
 				var filter = $("#browserList").attr("data-filter");
 				setActiveFilter(filter);
-				container.animate( { "margin-left": "0px" }, 0);
-				container.trigger('ribbon_type_change'); // trigger event that content had changed
+				container.animate( { "margin-left": "0px" })
 			});
+		});*/
+		//container.css("margin-left", "-400px");
+		container.load(siteURL + 'browser/ribbon_picker/view_strings',  function() {
+			var filter = $("#browserList").attr("data-filter");
+			setActiveFilter(filter);
+			//container.css("margin-left", "0px");
 		});
+		container.promise().done(function() {ribbon.trigger("ribbon_type_change", ["main-ribbon"]);});
+		
 	}else if(type == 'string') {
 		$(".view-all-strings-link").show();
+		
+		var ribbon = $(".ribbon");
+		ribbon.removeClass("main-ribbon");
+		ribbon.addClass("string-ribbon");		
+
 		var container = $(".ribbon div");
-		container.animate( { "margin-left": "-400px" }, function() {
+		/*container.animate( { "margin-left": "-400px" }, function() {
 			container.load(siteURL + "browser/ribbon_picker/view_pages", { 'string_id': string_id }, function() {
-				container.animate( { "margin-left": "0px" }, 0);
-				container.trigger('ribbon_type_change'); // trigger event that content had changed
+				container.animate( { "margin-left": "0px" })
 			});
+		});*/
+		//container.css("margin-left", "-400px");
+		container.load(siteURL + 'browser/ribbon_picker/view_pages', { 'string_id': string_id }, function() {
+			//container.css("margin-left", "0px");
+			
 		});
+		container.promise().done(function() {ribbon.trigger("ribbon_type_change", ["string-ribbon"]);});
 	}
 }
 

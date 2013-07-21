@@ -43,16 +43,28 @@
 	
 	</div>
 	
-	<div class="ribbon">
-		<div>
-			<?php 
-				$data['notes'] = $notes;
-				$data['unread_notes'] = $unread_notes;
-				$this->load->view('browser/'.$browser_ribbon_file); 
-			?>
+	<div class="ribbon-container">
+		<div class="ribbon">
+			<div>
+				<?php 
+					$data['notes'] = $notes;
+					$data['unread_notes'] = $unread_notes;
+					$this->load->view('browser/'.$browser_ribbon_file); 
+				?>
+			</div>
+		</div>
+		<span class="icon right-separator"></span>
+		<div class="toolbar">
+			<div>
+				<?php 
+					$data['notes'] = $notes;
+					$data['unread_notes'] = $unread_notes;
+					$this->load->view('browser/toolbar_ribbon'); 
+				?>
+			</div>
 		</div>
 	</div>
-
+	
 	<div class="under_ribbon">
 		<a class="view-all-strings-link" id="view-all-button" href="javascript:closeString()">&laquo;BACK TO ALL</a>
 				
